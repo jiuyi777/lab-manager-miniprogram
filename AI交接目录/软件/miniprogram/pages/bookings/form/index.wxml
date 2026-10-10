@@ -1,0 +1,9 @@
+<view class="screen"><view class="title">选择预约时段</view><view class="subtitle">{{item.name}} · {{item.labId}}室</view>
+<view wx:if="{{error}}" class="notice error">{{error}}</view><view class="card">
+<view class="field"><text class="label">日期</text><picker mode="date" value="{{form.date}}" data-field="date" bindchange="input"><view class="select">{{form.date}} ›</view></picker></view>
+<view class="field"><text class="label">开始时间</text><picker mode="time" value="{{form.start}}" data-field="start" bindchange="input"><view class="select">{{form.start}} ›</view></picker></view>
+<view class="field"><text class="label">结束时间</text><picker mode="time" value="{{form.end}}" data-field="end" bindchange="input"><view class="select">{{form.end}} ›</view></picker></view>
+<view class="field"><text class="label">用途</text><textarea maxlength="300" value="{{form.purpose}}" data-field="purpose" bindinput="input" placeholder="例如：样品形貌观察"/></view>
+<view class="field"><text class="label">关联样品（可选）</text><picker range="{{samples}}" range-key="name" value="{{sampleIndex}}" bindchange="chooseSample"><view class="select">{{samples[sampleIndex].name}} ›</view></picker></view></view>
+<view class="notice">提交时会检查开放时间、培训资格和时段冲突。待审批申请也会占位。</view>
+<button bindtap="submit" disabled="{{busy || !item}}" loading="{{busy}}">提交预约申请</button></view>

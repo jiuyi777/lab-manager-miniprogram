@@ -1,0 +1,7 @@
+<view class="screen"><view class="title">{{labId || '全部'}}实验室仪器</view>
+<input placeholder="搜索仪器名称或编号" value="{{keyword}}" bindinput="search"/>
+<view class="row wrap"><view wx:for="{{filters}}" wx:key="*this" class="pill" style="margin-top:18rpx;opacity:{{filter === item ? 1 : 0.6}}" bindtap="choose" data-value="{{item}}">{{item}}</view></view>
+<view wx:if="{{error}}" class="notice error">{{error}}</view><view wx:if="{{!items.length}}" class="empty">没有符合条件的仪器</view>
+<view wx:for="{{items}}" wx:key="id" class="card"><view class="row"><view class="heading">{{item.name}}</view><view class="pill">{{item.stateLabel}}</view></view>
+<view class="muted">{{item.id}} · {{item.labId}}室 {{item.location}}</view><button class="secondary" bindtap="go" data-url="/pages/instruments/detail/index?id={{item.id}}">查看详情与预约时段</button></view>
+<view class="notice">当前使用状态与未来时段分开判断，使用中也可预约未来。</view></view>

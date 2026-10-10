@@ -1,0 +1,7 @@
+<view class="screen"><view wx:if="{{error}}" class="notice error">{{error}}</view><block wx:if="{{item}}">
+<view class="title">{{item.name}}</view><view class="pill">{{item.stateLabel}}</view><view class="card">
+<view>{{item.id}} · {{item.model}}</view><view>{{item.labId}}室 {{item.location}}</view><view class="line"></view>
+<view class="heading">安全须知</view><view>{{item.safety}}</view><view class="notice">{{item.requiresTraining ? '需要有效培训资格' : '按实验室规程使用'}} · {{item.needsApproval ? '学生预约需要审批' : '免审批仪器'}}</view></view>
+<view class="section">已占用时段</view><view wx:if="{{!slots.length}}" class="card muted">暂无预约占位</view>
+<view wx:for="{{slots}}" wx:key="id" class="card"><view>{{item.text}}</view><view class="pill">{{item.label}}</view></view>
+<button disabled="{{item.status !== 'active'}}" bindtap="go" data-url="/pages/bookings/form/index?id={{item.id}}">{{item.status === 'active' ? '选择时间预约' : '维护中，暂不可预约'}}</button></block></view>

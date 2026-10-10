@@ -1,0 +1,9 @@
+<view class="screen"><view class="row"><view class="title">我的样品</view><view class="pill" bindtap="toggle">{{editing ? '收起' : '＋ 新建'}}</view></view>
+<view wx:if="{{error}}" class="notice error">{{error}}</view>
+<view wx:if="{{editing}}" class="card"><view class="field"><text class="label">样品名称</text><input value="{{form.name}}" data-field="name" bindinput="input" maxlength="80"/></view>
+<view class="field"><text class="label">成分／配方</text><textarea value="{{form.composition}}" data-field="composition" bindinput="input" maxlength="500"/></view>
+<view class="field"><text class="label">制备工艺</text><input value="{{form.process}}" data-field="process" bindinput="input"/></view>
+<text class="label">目标测试项</text><checkbox-group bindchange="chooseTests"><label wx:for="{{tests}}" wx:key="*this" class="option"><checkbox value="{{item}}" color="#202a25"/>{{item}}</label></checkbox-group>
+<button bindtap="save" disabled="{{busy}}">保存并生成编号</button></view>
+<view wx:if="{{!items.length}}" class="card empty">暂无样品，可先登记，再在预约时关联。</view>
+<view wx:for="{{items}}" wx:key="id" class="card"><view class="heading">{{item.name}}</view><view class="muted">{{item.id}}</view><view>测试项：{{item.tests}}</view><view wx:if="{{item.composition}}">成分：{{item.composition}}</view><view wx:if="{{item.process}}">工艺：{{item.process}}</view></view></view>

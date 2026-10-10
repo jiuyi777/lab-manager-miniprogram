@@ -1,0 +1,9 @@
+<view class="screen"><view class="title">管理工作台</view><view wx:if="{{error}}" class="notice error">{{error}}</view><block wx:if="{{allowed}}">
+<view class="notice">{{role}} · 老师仅处理本实验室，管理员处理全部实验室。</view>
+<view class="section">待审批 {{pending.length}}</view><view wx:if="{{!pending.length}}" class="card empty">暂无待审批申请</view>
+<view wx:for="{{pending}}" wx:key="id" class="card"><view class="heading">{{item.userName}} · {{item.instrumentName}}</view><view>{{item.startText}}</view><view>至 {{item.endText}}</view><view class="muted">{{item.purpose}}</view>
+<view class="actions"><button class="secondary" bindtap="run" data-id="{{item.id}}" data-action="reject" data-version="{{item.version}}" disabled="{{busy}}">驳回</button><button bindtap="run" data-id="{{item.id}}" data-action="approve" data-version="{{item.version}}" disabled="{{busy}}">通过</button></view></view>
+<view wx:if="{{pending.length}}" class="field"><text class="label">驳回原因（驳回时必填）</text><input value="{{form.reason}}" data-field="reason" bindinput="input" placeholder="先填写原因，再点击对应申请的驳回" maxlength="300"/></view>
+<view class="section">待确认归还 {{returns.length}}</view><view wx:if="{{!returns.length}}" class="muted">暂无待确认归还</view>
+<view wx:for="{{returns}}" wx:key="id" class="card"><view class="heading">{{item.userName}} · {{item.instrumentName}}</view><view>用户结束：{{item.actualEndText}}</view><view class="notice">请现场确认仪器与工作台状态正常后操作。</view>
+<button bindtap="run" data-id="{{item.id}}" data-action="return" data-version="{{item.version}}" disabled="{{busy}}">确认归还</button></view></block></view>

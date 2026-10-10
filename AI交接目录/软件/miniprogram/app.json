@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/auth/login/index",
+    "pages/home/index",
+    "pages/instruments/list/index",
+    "pages/instruments/detail/index",
+    "pages/bookings/form/index",
+    "pages/bookings/list/index",
+    "pages/bookings/detail/index",
+    "pages/reagents/list/index",
+    "pages/reagents/consume/index",
+    "pages/samples/index",
+    "pages/admin/index",
+    "pages/profile/index",
+    "pages/notifications/index",
+    "pages/logs/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "实验室管家",
+    "navigationBarBackgroundColor": "#f6f7f4",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f6f7f4"
+  },
+  "tabBar": {
+    "color": "#657168",
+    "selectedColor": "#202a25",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/bookings/list/index",
+        "text": "预约"
+      },
+      {
+        "pagePath": "pages/reagents/list/index",
+        "text": "试剂"
+      },
+      {
+        "pagePath": "pages/profile/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

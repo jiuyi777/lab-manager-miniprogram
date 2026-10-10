@@ -1,0 +1,10 @@
+<view class="screen">
+<view class="title">实验室管家</view><view class="subtitle">预约、使用与记录</view>
+<view class="notice">本地演示版 · 数据保存在此设备，不连接学校账号</view>
+<view class="section">选择演示账号</view>
+<view wx:for="{{users}}" wx:key="id" class="card row" data-id="{{item.id}}" bindtap="choose">
+<view><view class="heading">{{item.name}}</view><view class="muted">{{item.role === 'student' ? '学生 · 预约与登记' : item.role === 'teacher' ? '老师 · 本实验室审批' : '管理员 · 全部实验室'}}</view></view>
+<view class="pill">{{selected === item.id ? '已选择' : '选择'}}</view></view>
+<button bindtap="enter" loading="{{busy}}" disabled="{{busy}}">进入演示</button>
+<view class="notice">切换账号不会清空记录，可以在同一设备演示申请与审批。</view>
+</view>

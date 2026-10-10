@@ -1,0 +1,4 @@
+page {
+  --paper:#f6f7f4; --surface:#ffffff; --ink:#202a25;
+  --muted:#657168; --line:#cbd3ca; --sage:#dbe5da; --cream:#f0e6ca;
+}

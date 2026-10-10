@@ -1,0 +1,8 @@
+<view class="screen"><view class="title">我的</view><view wx:if="{{error}}" class="notice error">{{error}}</view>
+<view class="card"><view class="heading">{{user.name}} <text class="pill">{{role}}</text></view><view class="muted">授权实验室：{{user.labs}}</view></view>
+<view class="card"><view class="link" bindtap="go" data-tab="true" data-url="/pages/bookings/list/index">我的预约 ›</view>
+<view class="link" bindtap="go" data-url="/pages/samples/index">我的样品 ›</view><view class="link" bindtap="go" data-url="/pages/notifications/index">站内通知 ›</view>
+<view wx:if="{{canManage}}" class="link" bindtap="go" data-url="/pages/admin/index">管理工作台 ›</view>
+<view wx:if="{{user.role === 'admin'}}" class="link" bindtap="go" data-url="/pages/logs/index">操作日志 ›</view></view>
+<view class="notice">本地演示版 0.1.0 · 不连接真实学校账号。当前数据仅保存在此设备。</view>
+<button class="secondary" bindtap="logout">退出并更换演示账号</button></view>

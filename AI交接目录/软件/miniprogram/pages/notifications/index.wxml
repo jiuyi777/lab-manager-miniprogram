@@ -1,0 +1,2 @@
+<view class="screen"><view class="title">站内通知</view><view class="notice">本地演示通知；不发送微信服务通知。</view><view wx:if="{{error}}" class="notice error">{{error}}</view>
+<view wx:if="{{!items.length}}" class="empty">暂无通知</view><view wx:for="{{items}}" wx:key="id" class="card"><view class="heading">{{item.title}}</view><view class="muted">{{item.atText}} · {{item.bookingId}}</view><button wx:if="{{!item.read}}" class="secondary" bindtap="read" data-id="{{item.id}}">标记已读</button><view wx:else class="muted">已读</view></view></view>

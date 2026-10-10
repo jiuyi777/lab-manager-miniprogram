@@ -1,0 +1,15 @@
+{
+  "appid": "touristappid",
+  "projectname": "lab-manager",
+  "compileType": "miniprogram",
+  "miniprogramRoot": "miniprogram/",
+  "setting": {
+    "es6": true,
+    "enhance": true,
+    "minified": false,
+    "urlCheck": true
+  },
+  "packOptions": {
+    "ignore": []
+  }
+}

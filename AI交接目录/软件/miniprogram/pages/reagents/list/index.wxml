@@ -1,0 +1,7 @@
+<view class="screen"><view class="title">试剂台账</view><view class="notice">首版按批次、整瓶登记；只显示有使用权限的实验室。</view><view wx:if="{{error}}" class="notice error">{{error}}</view>
+<view wx:for="{{items}}" wx:key="id" class="card"><view class="heading">{{item.name}}</view><view class="muted">{{item.specification}} · {{item.location}} · {{item.labId}}室</view>
+<view class="large">剩余 {{item.stock}} {{item.unit}}</view><view class="small">批次 {{item.batch}} · 有效期 {{item.expiry}}</view>
+<view wx:if="{{item.low}}" class="notice warning">低于库存阈值 {{item.threshold}} 瓶</view><view wx:if="{{item.expired}}" class="notice error">该批次已过期</view>
+<button disabled="{{item.expired || item.stock === 0}}" bindtap="go" data-url="/pages/reagents/consume/index?id={{item.id}}">登记领用</button></view>
+<view wx:if="{{!items.length}}" class="empty">暂无可访问的试剂</view><view class="section">最近领用记录</view>
+<view wx:if="{{!logs.length}}" class="muted">暂无记录</view><view wx:for="{{logs}}" wx:key="id" class="card"><view>{{item.userName}} · {{item.quantity}} 瓶</view><view>{{item.purpose}}</view><view class="small muted">{{item.atText}} · 变动 {{item.before}} → {{item.after}}</view></view></view>

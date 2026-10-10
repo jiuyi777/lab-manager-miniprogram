@@ -1,0 +1,4 @@
+<view class="screen"><view class="title">我的预约</view>
+<view class="row wrap"><view wx:for="{{filters}}" wx:key="*this" class="pill" style="opacity:{{filter === item ? 1 : 0.6}}" bindtap="choose" data-value="{{item}}">{{item}}</view></view>
+<view wx:if="{{error}}" class="notice error">{{error}}</view><view wx:if="{{!items.length}}" class="card empty">暂无此状态的预约</view>
+<view wx:for="{{items}}" wx:key="id" class="card" bindtap="go" data-url="/pages/bookings/detail/index?id={{item.id}}"><view class="row"><view class="heading">{{item.instrumentName}}</view><view class="pill">{{item.statusLabel}}</view></view><view>{{item.startText}}</view><view class="muted">至 {{item.endText}}</view><view wx:if="{{item.isOverdue}}" class="notice warning">已超出预约结束时间</view><view class="link">查看详情 ›</view></view></view>

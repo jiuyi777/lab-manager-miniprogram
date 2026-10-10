@@ -1,0 +1,5 @@
+<view class="screen"><view class="title">领用登记</view><view wx:if="{{error}}" class="notice error">{{error}}</view>
+<view class="card"><view class="heading">{{item.name}}</view><view>{{item.specification}} · 批次 {{item.batch}}</view><view>当前 {{item.stock}} 瓶</view></view>
+<view class="card"><view class="field"><text class="label">领用数量（整瓶）</text><input type="number" value="{{form.quantity}}" data-field="quantity" bindinput="input"/></view>
+<view class="field"><text class="label">用途</text><textarea value="{{form.purpose}}" data-field="purpose" bindinput="input" maxlength="300" placeholder="请填写实际用途"/></view></view>
+<button loading="{{busy}}" disabled="{{busy || !item}}" bindtap="submit">确认领用</button></view>

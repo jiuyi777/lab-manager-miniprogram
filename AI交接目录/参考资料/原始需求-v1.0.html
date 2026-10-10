@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>实验室管家 · 小程序功能与界面文档</title>
+<style>
+:root{
+  --green:#1D9E75; --green-bg:#E1F5EE; --green-dk:#0F6E56;
+  --red:#E24B4A;   --red-bg:#FCEBEB;   --red-dk:#A32D2D;
+  --amber:#EF9F27; --amber-bg:#FAEEDA; --amber-dk:#854F0B;
+  --blue:#378ADD;  --blue-bg:#E6F1FB;  --blue-dk:#185FA5;
+  --gray:#888780;  --gray-bg:#F1EFE8;  --gray-dk:#5F5E5A;
+  --ink:#2C2C2A; --line:#E3E1DA;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; padding:0 20px 100px;
+  font-family:-apple-system,"Segoe UI","Microsoft YaHei",system-ui,sans-serif;
+  color:var(--ink); background:#FAF9F6; line-height:1.75; font-size:14px;
+}
+.wrap{max-width:960px;margin:0 auto}
+
+.cover{padding:64px 0 40px;border-bottom:2px solid var(--ink);margin-bottom:44px}
+.cover .tagline{color:var(--gray);font-size:13px;letter-spacing:.5px;margin:0 0 14px}
+.cover h1{font-size:32px;font-weight:500;margin:0 0 16px;line-height:1.35}
+.cover .desc{color:var(--gray-dk);font-size:14px;max-width:640px;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:32px;margin-top:28px;font-size:12.5px;color:var(--gray)}
+.meta b{display:block;color:var(--ink);font-weight:500;margin-top:2px;font-size:13px}
+
+h2{font-size:19px;font-weight:500;margin:52px 0 18px;padding-bottom:11px;border-bottom:1px solid var(--line)}
+h3{font-size:15.5px;font-weight:500;margin:32px 0 10px}
+h4{font-size:14px;font-weight:500;margin:22px 0 8px;color:var(--gray-dk)}
+p{margin:11px 0}
+ul,ol{padding-left:22px} li{margin:7px 0}
+code{background:var(--gray-bg);padding:2px 6px;border-radius:4px;font-size:12.5px;font-family:"Cascadia Code",Consolas,monospace}
+
+.toc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px 28px;margin:32px 0}
+.toc ol{columns:2;column-gap:36px;margin:0;padding-left:20px;font-size:13.5px}
+.toc li{margin:6px 0;break-inside:avoid}
+.toc a{color:var(--ink);text-decoration:none}
+.toc a:hover{color:var(--blue-dk)}
+
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 24px;margin:16px 0}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px}
+th{background:var(--gray-bg);font-weight:500;text-align:left;padding:11px 13px;border:1px solid var(--line)}
+td{padding:11px 13px;border:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even){background:#FCFCFA}
+
+pre{background:#2C2C2A;color:#F1EFE8;padding:20px 22px;border-radius:10px;overflow-x:auto;font-size:12.5px;line-height:1.7}
+pre code{background:none;color:inherit;padding:0}
+
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px;vertical-align:middle}
+.swatch{display:flex;align-items:center;gap:10px;margin:8px 0}
+.chip{display:inline-block;padding:3px 11px;border-radius:11px;font-size:12px;margin:3px 5px 3px 0;white-space:nowrap}
+
+.page{border-left:3px solid var(--blue);padding:0 0 0 20px;margin:32px 0}
+.page .no{display:inline-block;background:var(--blue);color:#fff;font-size:11.5px;padding:2px 9px;border-radius:5px;margin-right:9px;vertical-align:2px}
+.page h3{display:inline;margin:0}
+
+.note{background:var(--amber-bg);border-left:3px solid var(--amber);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0;font-size:13.5px}
+.note strong{color:var(--amber-dk)}
+.ok{background:var(--green-bg);border-left:3px solid var(--green);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0;font-size:13.5px}
+.ok strong{color:var(--green-dk)}
+.warn{background:var(--red-bg);border-left:3px solid var(--red);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0;font-size:13.5px}
+.warn strong{color:var(--red-dk)}
+
+.mock{background:var(--gray-bg);border-radius:10px;padding:18px 20px;margin:14px 0;font-size:13px;line-height:1.9}
+.mock .row{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #D3D1C7}
+.mock .row:last-child{border-bottom:none}
+.mock .t{color:var(--gray)}
+
+.footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--line);color:var(--gray);font-size:12.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="cover">
+  <p class="tagline">需求与界面设计文档</p>
+  <h1>实验室管家 · 微信小程序</h1>
+  <p class="desc">面向校园实验室的仪器预约、试剂台账与样品登记一体化管理系统。局域网部署，三角色权限，多管理员实时同步协作，界面遵循「看板 + 交通灯 + 一键直达」原则，力求一眼看清。</p>
+  <div class="meta">
+    <div>文档版本<b>v1.0</b></div>
+    <div>日期<b>2026-10-09</b></div>
+    <div>前端技术栈<b>微信小程序原生</b></div>
+    <div>部署环境<b>校园网 / 局域网 + VPN</b></div>
+    <div>状态<b>待评审</b></div>
+  </div>
+</div>
+
+<div class="toc">
+  <ol>
+    <li><a href="#s1">项目背景与目标</a></li>
+    <li><a href="#s2">技术架构</a></li>
+    <li><a href="#s3">角色与权限矩阵</a></li>
+    <li><a href="#s4">功能需求清单</a></li>
+    <li><a href="#s5">核心业务流程</a></li>
+    <li><a href="#s6">多管理员实时协作机制</a></li>
+    <li><a href="#s7">界面设计规范</a></li>
+    <li><a href="#s8">页面详细设计</a></li>
+    <li><a href="#s9">后端接口清单</a></li>
+    <li><a href="#s10">数据库表结构</a></li>
+    <li><a href="#s11">开发阶段规划</a></li>
+    <li><a href="#s12">待确认事项</a></li>
+  </ol>
+</div>
+
+<h2 id="s1">一、项目背景与目标</h2>
+
+<h3>1.1 背景</h3>
+<p>实验室现有仪器预约、试剂领用、样品登记等事务主要依靠纸质登记表、微信群口头协调或零散的 Excel 表格管理，存在以下痛点：</p>
+<ul>
+<li><strong>时段冲突频发</strong>：学生到现场才发现仪器被占用，白跑一趟。</li>
+<li><strong>台账不实时</strong>：试剂库存靠人工盘点，常出现"账上有、柜里没有"。</li>
+<li><strong>审批链路长</strong>：请假条式的线下审批，管理员不在办公室就无法推进。</li>
+<li><strong>无追溯</strong>：谁在什么时候改了什么，事后无法查证，责任不清。</li>
+<li><strong>信息分散</strong>：仪器使用说明、安全须知只在墙上贴着，新人上手困难。</li>
+</ul>
+
+<h3>1.2 建设目标</h3>
+<ol>
+<li><strong>预约线上化</strong>：学生手机端即可查看仪器实时状态、按时间段预约、收到审批结果通知。</li>
+<li><strong>状态可视化</strong>：仪器空闲 / 占用 / 维护状态用颜色一眼区分，无需询问。</li>
+<li><strong>台账实时化</strong>：试剂领用即扣减，库存临期与告急自动预警。</li>
+<li><strong>协作同步化</strong>：多位管理员同时在线操作，数据秒级同步，不产生脏数据。</li>
+<li><strong>知识沉淀化</strong>：仪器使用方法、安全须知、仪器档案线上化，新人可自助查阅。</li>
+</ol>
+
+<h3>1.3 范围边界</h3>
+<div class="card">
+<p style="margin-top:0"><strong>本期包含</strong></p>
+<ul style="margin-bottom:14px">
+<li>仪器预约全流程（查询 → 预约 → 审批 → 签到 → 归还）</li>
+<li>试剂台账与领用登记、库存预警</li>
+<li>样品登记与测试项关联</li>
+<li>实验室与仪器基础信息管理</li>
+<li>管理员审批台与操作日志</li>
+</ul>
+<p style="margin-bottom:6px"><strong>本期不含（后续迭代）</strong></p>
+<ul style="margin-bottom:0">
+<li>仪器数据自动采集与图表分析</li>
+<li>与学校统一身份认证（CAS）对接</li>
+<li>消息推送到微信服务通知（先做小程序内红点）</li>
+<li>经费、耗材采购流程</li>
+</ul>
+</div>
+
+<h2 id="s2">二、技术架构</h2>
+
+<pre><code>┌──────────────┐    校园网 WiFi / VPN    ┌────────────────────────┐
+│  微信小程序    │  ←──────────────────→  │  后端服务器（校方提供）    │
+│  用户前端      │      HTTPS / WSS       │  · 数据库               │
+│              │                        │  · 业务 API             │
+└──────────────┘                        │  · WebSocket 服务        │
+                                       └────────────────────────┘</code></pre>
+
+<table>
+<tr><th style="width:22%">层级</th><th>选型</th><th>说明</th></tr>
+<tr><td>前端</td><td>微信小程序原生（WXML / WXSS / JS）</td><td>无需构建工具，代码包上传微信平台即可，便于校内维护与交接</td></tr>
+<tr><td>后端</td><td>校方提供，部署于校内机房</td><td>对外暴露一个域名或 IP 供小程序请求</td></tr>
+<tr><td>通信</td><td>HTTPS（业务）+ WSS（实时同步）</td><td>微信小程序要求请求域名必须备案且为 HTTPS</td></tr>
+<tr><td>准入</td><td>校园网 WiFi 或校园 VPN</td><td>天然满足区域限制与安全要求，校外无法访问</td></tr>
+<tr><td>数据层</td><td>后端数据库</td><td>前端通过统一 API 层访问，便于 Mock 与真实接口切换</td></tr>
+</table>
+
+<div class="note"><strong>重要前提：</strong>微信小程序正式版要求请求域名必须为已备案的 HTTPS 域名。若校方服务器只有内网 IP，有两种方案：① 申请一个校内域名并配置 HTTPS 证书（推荐）；② 开发调试阶段在微信开发者工具中勾选「不校验合法域名」，仅用于测试，不能上正式版。</div>
+
+<h2 id="s3">三、角色与权限矩阵</h2>
+
+<p>系统设三类角色，权限逐级递增。</p>
+
+<table>
+<tr><th style="width:20%">能力</th><th style="width:26%">学生</th><th style="width:26%">老师</th><th>管理员</th></tr>
+<tr><td>登录方式</td><td>学号 + 密码</td><td>工号 + 密码</td><td>工号 + 密码</td></tr>
+<tr><td>查看仪器状态</td><td><span class="chip" style="background:#E1F5EE;color:#0F6E56">✓ 全部</span></td><td><span class="chip" style="background:#E1F5EE;color:#0F6E56">✓ 全部</span></td><td><span class="chip" style="background:#E1F5EE;color:#0F6E56">✓ 全部</span></td></tr>
+<tr><td>预约仪器</td><td>需管理员审批</td><td>本实验室仪器免审批</td><td>免审批</td></tr>
+<tr><td>取消自己的预约</td><td><span class="chip" style="background:#E1F5EE;color:#0F6E56">✓</span></td><td><span class="chip" style="background:#E1F5EE;color:#0F6E56">✓</span></td><td><span class="chip" style="background:#E1F5EE;color:#0F6E56">✓</span></td></tr>
+<tr><td>审批预约</td><td><span class="chip" style="background:#F1EFE8;color:#888780">✗</span></td><td>仅本实验室</td><td><span class="chip" style="background:#E1F5EE;color:#0F6E56">✓ 全部</span></td></tr>
+<tr><td>增删改仪器</td><td><span class="chip" style="background:#F1EFE8;color:#888780">✗</span></td><td><span class="chip" style="background:#F1EFE8;color:#888780">✗</span></td><td><span class="chip" style="background:#E1F5EE;color:#0F6E56">✓</span></td></tr>
+<tr><td>试剂领用登记</td><td><span class="chip" style="background:#E1F5EE;color:#0F6E56">✓</span></td><td><span class="chip" style="background:#E1F5EE;color:#0F6E56">✓</span></td><td><span class="chip" style="background:#E1F5EE;color:#0F6E56">✓</span></td></tr>
+<tr><td>试剂入库 / 改库存</td><td><span class="chip" style="background:#F1EFE8;color:#888780">✗</span></td><td><span class="chip" style="background:#F1EFE8;color:#888780">✗</span></td><td><span class="chip" style="background:#E1F5EE;color:#0F6E56">✓</span></td></tr>
+<tr><td>样品登记</td><td><span class="chip" style="background:#E1F5EE;color:#0F6E56">✓ 本人样品</span></td><td><span class="chip" style="background:#E1F5EE;color:#0F6E56">✓ 本人样品</span></td><td><span class="chip" style="background:#E1F5EE;color:#0F6E56">✓ 全部</span></td></tr>
+<tr><td>发布公告</td><td><span class="chip" style="background:#F1EFE8;color:#888780">✗</span></td><td><span class="chip" style="background:#F1EFE8;color:#888780">✗</span></td><td><span class="chip" style="background:#E1F5EE;color:#0F6E56">✓</span></td></tr>
+<tr><td>查看操作日志</td><td><span class="chip" style="background:#F1EFE8;color:#888780">✗</span></td><td><span class="chip" style="background:#F1EFE8;color:#888780">✗</span></td><td><span class="chip" style="background:#E1F5EE;color:#0F6E56">✓</span></td></tr>
+<tr><td>维护用户名单</td><td><span class="chip" style="background:#F1EFE8;color:#888780">✗</span></td><td><span class="chip" style="background:#F1EFE8;color:#888780">✗</span></td><td><span class="chip" style="background:#E1F5EE;color:#0F6E56">✓ 预录入</span></td></tr>
+</table>
+
+<div class="ok"><strong>用户来源：</strong>账号不由用户自行注册，全部由管理员按名单预录入（导入学号/工号），首次登录强制修改初始密码。这样可避免无关人员进入系统，也符合校园管理习惯。</div>
+
+<h2 id="s4">四、功能需求清单</h2>
+
+<h3>4.1 认证与用户</h3>
+<table>
+<tr><th style="width:6%">编号</th><th style="width:28%">功能</th><th>说明</th></tr>
+<tr><td>F-A01</td><td>三角色登录</td><td>启动页选择身份后进入对应登录表单，输入学号/工号 + 密码</td></tr>
+<tr><td>F-A02</td><td>Token 续期</td><td>登录返回 token，过期前自动刷新，避免频繁重登</td></tr>
+<tr><td>F-A03</td><td>校园网检测</td><td>启动时检测网络环境，未连校园网给出明确引导</td></tr>
+<tr><td>F-A04</td><td>查看个人信息</td><td>姓名、角色、所属实验室、联系方式</td></tr>
+<tr><td>F-A05</td><td>用户名单维护</td><td>管理员批量预录入用户，可修改角色与实验室归属</td></tr>
+</table>
+
+<h3>4.2 实验室管理</h3>
+<table>
+<tr><th style="width:6%">编号</th><th style="width:28%">功能</th><th>说明</th></tr>
+<tr><td>F-L01</td><td>实验室列表</td><td>按编号排序（501 / 502 …），显示房间号与名称</td></tr>
+<tr><td>F-L02</td><td>实验室卡片统计</td><td>显示仪器总数、空闲/占用/维护计数、今日预约人数</td></tr>
+<tr><td>F-L03</td><td>新增 / 修改实验室</td><td>管理员操作，含名称、编号、位置、负责人、开放时段、状态</td></tr>
+<tr><td>F-L04</td><td>实验室启停</td><td>状态可设为启用 / 维护中 / 关闭</td></tr>
+</table>
+
+<h3>4.3 仪器管理</h3>
+<table>
+<tr><th style="width:6%">编号</th><th style="width:28%">功能</th><th>说明</th></tr>
+<tr><td>F-I01</td><td>仪器列表与筛选</td><td>按实验室筛选；标签切换：全部 / 空闲 / 占用 / 维护 / 我的</td></tr>
+<tr><td>F-I02</td><td>仪器详情</td><td>基本信息、图片轮播、使用方法、安全须知、仪器档案</td></tr>
+<tr><td>F-I03</td><td>实时状态显示</td><td>空闲（绿）/ 占用（红，含使用者与结束时间）/ 维护（黄）</td></tr>
+<tr><td>F-I04</td><td>新增 / 修改仪器</td><td>管理员操作，支持上传仪器图片、说明书 PDF</td></tr>
+<tr><td>F-I05</td><td>仪器档案字段</td><td>来源、启用日期、使用年限、下次计量校准日期（临期自动预警）</td></tr>
+<tr><td>F-I06</td><td>停用 / 恢复仪器</td><td>停用后不出现在可预约列表，历史记录保留</td></tr>
+<tr><td>F-I07</td><td>是否需审批开关</td><td>单台仪器可配置「是否需要管理员审批」</td></tr>
+<tr><td>F-I08</td><td>是否需培训开关</td><td>标记该仪器是否要求先完成培训才能预约</td></tr>
+</table>
+
+<h3>4.4 预约管理</h3>
+<table>
+<tr><th style="width:6%">编号</th><th style="width:28%">功能</th><th>说明</th></tr>
+<tr><td>F-B01</td><td>今日时段时间轴</td><td>横向时间轴，2 小时一格，色块区分可约 / 已占用 / 待审批</td></tr>
+<tr><td>F-B02</td><td>提交预约</td><td>选择起止时间、填写样品用途、可选关联样品</td></tr>
+<tr><td>F-B03</td><td>时段冲突拦截</td><td>提交时服务端二次校验，冲突则弹出引导弹窗</td></tr>
+<tr><td>F-B04</td><td>冲突引导弹窗</td><td>提供三个出路：改约最近空闲时段 / 查看完整时间表 / 换同类型仪器</td></tr>
+<tr><td>F-B05</td><td>审批通过 / 驳回</td><td>管理员操作，驳回需填写原因</td></tr>
+<tr><td>F-B06</td><td>批量审批</td><td>勾选多条后一键通过</td></tr>
+<tr><td>F-B07</td><td>取消预约</td><td>学生可取消自己的未开始预约；管理员可取消任意</td></tr>
+<tr><td>F-B08</td><td>签到</td><td>到达实验室后签到，记录实际开始时间</td></tr>
+<tr><td>F-B09</td><td>归还确认</td><td>管理员确认归还，记录实际结束时间，释放仪器</td></tr>
+<tr><td>F-B10</td><td>逾期处理</td><td>超过结束时间未归还自动标记逾期，列表红色高亮</td></tr>
+<tr><td>F-B11</td><td>排队候补</td><td>仪器被占用时可登记候补，释放后通知</td></tr>
+<tr><td>F-B12</td><td>我的预约列表</td><td>按状态分组：待审批 / 已通过 / 进行中 / 已完成 / 已取消</td></tr>
+</table>
+
+<h3>4.5 试剂管理</h3>
+<table>
+<tr><th style="width:6%">编号</th><th style="width:28%">功能</th><th>说明</th></tr>
+<tr><td>F-R01</td><td>试剂台账列表</td><td>名称、规格、浓度、存放柜位、当前库存、安全等级</td></tr>
+<tr><td>F-R02</td><td>库存进度条</td><td>视觉化余量，颜色随余量变化（充足绿 / 偏低琥珀 / 告急红）</td></tr>
+<tr><td>F-R03</td><td>库存预警</td><td>低于阈值自动进入预警清单，首页看板显示数量</td></tr>
+<tr><td>F-R04</td><td>保质期预警</td><td>临期试剂标记琥珀色，过期标记红色</td></tr>
+<tr><td>F-R05</td><td>领用登记</td><td>记录领用人、数量、用途、关联样品，自动扣减库存</td></tr>
+<tr><td>F-R06</td><td>领用历史</td><td>按试剂或按人查询历史领用记录</td></tr>
+<tr><td>F-R07</td><td>新增 / 入库</td><td>管理员操作，登记规格、CAS 号、数量、有效期</td></tr>
+<tr><td>F-R08</td><td>危险品标识</td><td>安全等级字段，高危试剂卡片加重提示</td></tr>
+</table>
+
+<h3>4.6 样品管理</h3>
+<table>
+<tr><th style="width:6%">编号</th><th style="width:28%">功能</th><th>说明</th></tr>
+<tr><td>F-S01</td><td>样品登记</td><td>编号（自动生成）、名称、成分/配方、制备工艺、目标测试项</td></tr>
+<tr><td>F-S02</td><td>关联预约</td><td>预约时可从样品库选择，自动带入</td></tr>
+<tr><td>F-S03</td><td>测试项标签</td><td>SEM / XRD / FTIR 等多选标签，支持自定义</td></tr>
+<tr><td>F-S04</td><td>样品列表</td><td>我的样品 / 全部样品（管理员），支持按编号搜索</td></tr>
+<tr><td>F-S05</td><td>数据归档</td><td>实验完成后测试数据文件挂载到该样品下</td></tr>
+</table>
+
+<h3>4.7 通知与日志</h3>
+<table>
+<tr><th style="width:6%">编号</th><th style="width:28%">功能</th><th>说明</th></tr>
+<tr><td>F-N01</td><td>站内通知红点</td><td>待审批、审批结果、公告，首页右上角显示未读数量</td></tr>
+<tr><td>F-N02</td><td>公告发布</td><td>管理员发布，支持优先级（普通 / 紧急），紧急公告首页红底显示</td></tr>
+<tr><td>F-N03</td><td>操作日志</td><td>记录谁、何时、做了什么、影响哪条数据，供追溯</td></tr>
+<tr><td>F-N04</td><td>日志筛选</td><td>按操作人、时间范围、操作类型筛选</td></tr>
+</table>
+
+<h2 id="s5">五、核心业务流程</h2>
+
+<h3>5.1 学生预约主流程</h3>
+<pre><code>选择实验室 → 浏览仪器列表（看状态颜色）
+      ↓
+   进入仪器详情（看使用方法 / 安全须知）
+      ↓
+   点击「选择时间段预约」→ 查看今日时间轴
+      ↓
+   选择起止时间 → 填写样品用途 → 提交
+      ↓
+  ┌─ 时段空闲 ────────────┐   ┌─ 时段冲突 ──────────────┐
+  │  生成待审批预约单        │   │  弹出引导弹窗             │
+  │  广播 booking:new       │   │  ① 改约最近空闲时段       │
+  │  管理员待审批 +1        │   │  ② 查看今日完整时间表      │
+  └───────────┬───────────┘   │  ③ 换一台同类型仪器       │
+              │               └───────────┬─────────────┘
+              ↓                           │
+     管理员审批 ──驳回──→ 通知学生 + 填写原因  │
+              │                           │
+           通过 ↓ ←────────────────────────┘
+     广播 booking:approved → 学生状态变绿
+              ↓
+     到约定时间 → 签到（记录 actual_start）
+              ↓
+     实验结束 → 管理员归还确认（记录 actual_end）
+              ↓
+     预约状态置为 completed，仪器释放为空闲
+     广播 instrument:updated → 所有人界面刷新</code></pre>
+
+<h3>5.2 试剂领用流程</h3>
+<pre><code>学生打开试剂台账 → 选择试剂 → 点击「领用」
+      ↓
+   填写领用数量 + 用途 + 关联样品
+      ↓
+   校验：数量 ≤ 当前库存？
+      ↓ 是
+   扣减库存 → 写入 reagent_logs
+      ↓
+   广播 reagent:stock_changed
+      ↓
+   所有在线端库存数字实时更新
+      ↓
+   若扣减后低于阈值 → 首页「库存预警」+1，卡片转红</code></pre>
+
+<h3>5.3 并发编辑保护流程</h3>
+<pre><code>管理员 A 打开仪器编辑页（读取 version = 7）
+      ↓
+管理员 B 同时打开同一仪器（version = 7）
+      ↓
+   A 先保存 → 后端比对 version 一致 → 更新为 version = 8
+      ↓
+   B 提交 → 后端比对 version（7 ≠ 8）→ 拒绝
+      ↓
+   B 端提示：「数据已被 A 修改，请刷新后重试」
+      ↓
+   B 刷新拿到最新数据，重新编辑</code></pre>
+
+<h2 id="s6">六、多管理员实时协作机制</h2>
+
+<h3>6.1 同步方式</h3>
+<table>
+<tr><th style="width:32%">场景</th><th>机制</th></tr>
+<tr><td>A 管理员新增仪器</td><td>后端落库 → 广播 <code>instrument:updated</code> → B 管理员列表自动出现新仪器</td></tr>
+<tr><td>A 审批通过预约</td><td>广播 <code>booking:approved</code> → 学生「我的预约」状态自动变绿</td></tr>
+<tr><td>A 修改试剂库存</td><td>广播 <code>reagent:stock_changed</code> → B 的试剂页数字实时跳动</td></tr>
+<tr><td>A 发布公告</td><td>广播 <code>announcement:new</code> → 所有在线端顶部公告条刷新</td></tr>
+<tr><td>并发编辑冲突</td><td>数据表带 <code>version</code> 乐观锁，后提交者收到「请刷新重试」提示</td></tr>
+<tr><td>WebSocket 断线</td><td>前端每 30 秒轮询关键数据兜底，重连后自动恢复推送</td></tr>
+</table>
+
+<h3>6.2 设计原则</h3>
+<ul>
+<li><strong>不打扰</strong>：别人的操作不弹窗打断当前使用，只静默刷新对应区域；仅涉及当前用户的审批结果才提示。</li>
+<li><strong>可见即可信</strong>：所有管理员操作写入日志，任何人可查「这条数据是谁改的、什么时候改的」。</li>
+<li><strong>冲突不丢数据</strong>：乐观锁只拒绝后提交者，其填写内容保留在表单中，刷新后大部分可复用。</li>
+</ul>
+
+<h2 id="s7">七、界面设计规范</h2>
+
+<h3>7.1 三条设计原则</h3>
+<div class="card">
+<p style="margin-top:0"><strong>① 看板优先</strong> —— 打开首页第一眼看到的是数字和状态，不是菜单。管理员每天最关心「有几件事等我处理」。</p>
+<p><strong>② 交通灯语义</strong> —— 颜色即状态，用户不需要读文字说明就能判断「能不能用」。</p>
+<p style="margin-bottom:0"><strong>③ 一键直达</strong> —— 看板上的每个数字都是可点击入口，点「待审批 5」直接进入那 5 条记录，不做二级菜单。</p>
+</div>
+
+<h3>7.2 色彩语义（全局统一）</h3>
+<p>所有页面共用一套语义色，不解释就懂。</p>
+
+<div class="card">
+<div class="swatch"><span class="dot" style="background:var(--green)"></span><strong>翠绿</strong>　正常 / 空闲 / 已完成 · 仪器空闲、预约成功、库存充足</div>
+<div class="swatch"><span class="dot" style="background:var(--red)"></span><strong>朱红</strong>　异常 / 占用 / 待处理 · 仪器使用中、冲突弹窗、库存告急、逾期</div>
+<div class="swatch"><span class="dot" style="background:var(--amber)"></span><strong>琥珀</strong>　警告 / 待审 / 即将到期 · 待审批、即将超时、保质期临近</div>
+<div class="swatch"><span class="dot" style="background:var(--blue)"></span><strong>靛蓝</strong>　操作 / 可点击 / 链接 · 主按钮、可跳转卡片</div>
+<div class="swatch"><span class="dot" style="background:#B4B2A9"></span><strong>灰白</strong>　不可用 / 已归档 · 已停用仪器、已取消预约</div>
+</div>
+
+<table>
+<tr><th>语义</th><th>填充色</th><th>文字色</th><th>示例</th></tr>
+<tr><td>成功 / 空闲 / 充足</td><td><code>#E1F5EE</code></td><td><code>#0F6E56</code></td><td><span class="chip" style="background:#E1F5EE;color:#0F6E56">● 空闲 9</span></td></tr>
+<tr><td>错误 / 占用 / 告急</td><td><code>#FCEBEB</code></td><td><code>#A32D2D</code></td><td><span class="chip" style="background:#FCEBEB;color:#A32D2D">● 占用 3</span></td></tr>
+<tr><td>警告 / 待审 / 临期</td><td><code>#FAEEDA</code></td><td><code>#854F0B</code></td><td><span class="chip" style="background:#FAEEDA;color:#854F0B">待审批 5</span></td></tr>
+<tr><td>操作 / 链接 / 主按钮</td><td><code>#378ADD</code></td><td><code>#FFFFFF</code></td><td><span class="chip" style="background:#378ADD;color:#fff">立即预约</span></td></tr>
+<tr><td>中性 / 不可用 / 归档</td><td><code>#F1EFE8</code></td><td><code>#888780</code></td><td><span class="chip" style="background:#F1EFE8;color:#888780">已归档</span></td></tr>
+</table>
+
+<h3>7.3 排版与组件规范</h3>
+<table>
+<tr><th style="width:26%">项目</th><th>规范</th></tr>
+<tr><td>主标题</td><td>15px，字重 500，颜色 <code>#2C2C2A</code></td></tr>
+<tr><td>正文</td><td>13px，字重 400，行高 1.6，颜色 <code>#5F5E5A</code></td></tr>
+<tr><td>次要说明</td><td>11–12px，颜色 <code>#888780</code></td></tr>
+<tr><td>看板大数字</td><td>26px，字重 500，按语义上色</td></tr>
+<tr><td>卡片圆角</td><td>12px（列表卡片）/ 10px（内嵌小块）</td></tr>
+<tr><td>卡片间距</td><td>纵向 12px，横向 12px</td></tr>
+<tr><td>页面左右边距</td><td>16px</td></tr>
+<tr><td>分割线</td><td>0.5px，颜色 <code>#D3D1C7</code></td></tr>
+<tr><td>主按钮高度</td><td>44px，圆角 10px，靛蓝填充</td></tr>
+<tr><td>次级按钮高度</td><td>34–40px，白底 + 0.5px 描边</td></tr>
+</table>
+<p>字重仅用 400 与 500 两档，不使用加粗堆叠；不使用渐变、阴影、发光等装饰效果，保持扁平清爽。</p>
+
+<h2 id="s8">八、页面详细设计</h2>
+
+<div class="page">
+<h3><span class="no">页面 1</span>启动页 · 身份选择</h3>
+<p>应用的第一屏，承担品牌露出与身份分流两个职责。</p>
+<div class="mock">
+<div class="row"><span>顶部品牌区</span><span class="t">图标 + "实验室管家" + 一句话副标题</span></div>
+<div class="row"><span>引导文案</span><span class="t">请选择您的身份</span></div>
+<div class="row"><span>身份卡片 ×3</span><span class="t">学生 / 老师 / 管理员，各带一行权限说明</span></div>
+<div class="row"><span>主按钮</span><span class="t">进入登录</span></div>
+<div class="row"><span>网络提示</span><span class="t">未连校园网时显示琥珀色引导条</span></div>
+</div>
+<p><strong>设计要点：</strong>三张身份卡片用各自角色的语义色描边（学生靛蓝、老师翠绿、管理员朱红），选中态明显。底部常驻提示「仅限校园网内访问」。</p>
+</div>
+
+<div class="page">
+<h3><span class="no">页面 2</span>登录页 · 三角色分流</h3>
+<p>根据上一步选择的身份，动态切换输入项与提示文案。</p>
+<div class="mock">
+<div class="row"><span>学生</span><span class="t">学号 + 密码，提示"首次登录请使用初始密码"</span></div>
+<div class="row"><span>老师</span><span class="t">工号 + 密码</span></div>
+<div class="row"><span>管理员</span><span class="t">工号 + 密码 + 二次验证（可选）</span></div>
+<div class="row"><span>辅助操作</span><span class="t">返回身份选择 / 忘记密码（联系管理员）</span></div>
+</div>
+</div>
+
+<div class="page">
+<h3><span class="no">页面 3</span>首页 · 角色自适应看板</h3>
+<p>全应用信息密度最高的一屏，用四个纵向区块组织。</p>
+<div class="mock">
+<div class="row"><span>顶部固定区（10%）</span><span class="t">标题 + 通知红点 + 个人入口 + 公告横向滚动条</span></div>
+<div class="row"><span>核心看板区（30%）</span><span class="t">待审批 / 使用中 / 库存预警 三块大数字卡，点击直达</span></div>
+<div class="row"><span>实验室卡片区（50%）</span><span class="t">每实验室一张卡：仪器数 + 空闲/占用/维护计数 + 今日预约</span></div>
+<div class="row"><span>底部导航（10%）</span><span class="t">首页 / 预约 / 试剂 / 我的</span></div>
+</div>
+<p><strong>看板区细节：</strong>数字 26px 换行居中，标签在上、数字在下、单位在最后。三块卡分别用朱红（待审批）、翠绿（使用中）、琥珀（库存预警）填充浅色底，形成强烈的视觉分区。</p>
+<p><strong>公告条：</strong>横向滚动，紧急公告使用朱红底色，普通公告使用灰底。点击展开完整公告列表。</p>
+<p><strong>学生视角差异：</strong>核心看板区替换为「我的今日预约」卡片与「快速预约」入口，实验室卡片区保留。</p>
+</div>
+
+<div class="page">
+<h3><span class="no">页面 4</span>仪器列表页</h3>
+<p>拒绝密集表格，改用卡片列表 + 顶部筛选标签 + 左滑操作。</p>
+<div class="mock">
+<div class="row"><span>顶部</span><span class="t">返回 + 实验室名 + 搜索入口</span></div>
+<div class="row"><span>筛选标签</span><span class="t">全部 / 空闲 / 占用 / 维护 / 我的（选中态绿底白字）</span></div>
+<div class="row"><span>卡片第一行</span><span class="t">仪器名称（15px，字重 500）</span></div>
+<div class="row"><span>卡片第二行</span><span class="t">型号（12px，灰色）</span></div>
+<div class="row"><span>卡片第三行</span><span class="t">状态圆点 + 状态文字 + 位置 + 可约性，一行说完</span></div>
+<div class="row"><span>操作按钮</span><span class="t">随状态变化（见下表）</span></div>
+<div class="row"><span>左滑手势</span><span class="t">管理员：编辑 / 停用 / 删除　学生：取消预约</span></div>
+</div>
+<table>
+<tr><th>仪器状态</th><th>第三行显示</th><th>按钮</th></tr>
+<tr><td><span class="chip" style="background:#E1F5EE;color:#0F6E56">空闲</span></td><td>空闲 · 501室B区 · 今日可约</td><td>立即预约 ＋ 使用方法</td></tr>
+<tr><td><span class="chip" style="background:#FCEBEB;color:#A32D2D">使用中</span></td><td>使用中 · 张三 · 14:30 结束</td><td>查看占用 ＋ 排队候补</td></tr>
+<tr><td><span class="chip" style="background:#FAEEDA;color:#854F0B">维护中</span></td><td>维护中 · 预计明日恢复</td><td>查看进度</td></tr>
+</table>
+</div>
+
+<div class="page">
+<h3><span class="no">页面 5</span>仪器详情页</h3>
+<p>信息分层，采用折叠面板避免一打开全是字。</p>
+<div class="mock">
+<div class="row"><span>图片轮播区</span><span class="t">3 张占位，管理员可上传替换，右下角显示 1/3</span></div>
+<div class="row"><span>基本信息</span><span class="t">默认展开 —— 编号、型号、位置、负责人</span></div>
+<div class="row"><span>使用方法</span><span class="t">默认收起 —— 点击展开，内容后续填充</span></div>
+<div class="row"><span>安全须知</span><span class="t">默认收起 —— 点击展开</span></div>
+<div class="row"><span>仪器档案</span><span class="t">默认展开 —— 来源、启用日期、年限、下次校准</span></div>
+<div class="row"><span>底部固定区</span><span class="t">当前状态条 + "选择时间段预约"主按钮</span></div>
+</div>
+<p><strong>计量校准预警：</strong>若「下次计量校准」日期距今不足 90 天，该行文字转琥珀色并加圆点标记；已过期则转朱红。</p>
+</div>
+
+<div class="page">
+<h3><span class="no">页面 6</span>预约页 · 今日时间轴</h3>
+<p>可视化当天仪器的占用情况，让用户自己找到空档。</p>
+<div class="mock">
+<div class="row"><span>时间轴</span><span class="t">08:00–20:00，每 2 小时一格，共 7 格</span></div>
+<div class="row"><span>色块语义</span><span class="t">浅绿 = 可约　红 = 已占用　黄 = 待审批</span></div>
+<div class="row"><span>占用区块</span><span class="t">直接标注"张三 13:00-15:00"，一眼看清谁占了</span></div>
+<div class="row"><span>表单-时间</span><span class="t">开始时间 / 结束时间</span></div>
+<div class="row"><span>表单-用途</span><span class="t">样品用途文本框，提示"例：SEM 形貌观察 / 样品编号"</span></div>
+<div class="row"><span>表单-样品</span><span class="t">关联样品（可选），从样品库选择</span></div>
+<div class="row"><span>提示条</span><span class="t">学生视角：琥珀色提示"预约需管理员审批后生效"</span></div>
+<div class="row"><span>主按钮</span><span class="t">提交预约申请</span></div>
+</div>
+</div>
+
+<div class="page">
+<h3><span class="no">页面 7</span>时段冲突 · 引导弹窗</h3>
+<p>不阻断式设计，弹窗只提供出路，不逼用户放弃。</p>
+<div class="mock">
+<div class="row"><span>标题区</span><span class="t">红色警示图标 + "该时段已被占用"</span></div>
+<div class="row"><span>冲突详情</span><span class="t">红底信息块："当前占用：张三　13:00–15:00 · 样品测试"</span></div>
+<div class="row"><span>选项 ①</span><span class="t">改约 15:00–17:00（绿底高亮，标注"推荐 · 该时段空闲"）</span></div>
+<div class="row"><span>选项 ②</span><span class="t">查看今日完整时间表</span></div>
+<div class="row"><span>选项 ③</span><span class="t">换一台同类型仪器</span></div>
+<div class="row"><span>底部</span><span class="t">"我再想想" —— 弱化文字按钮，非主按钮</span></div>
+</div>
+<div class="note"><strong>设计理由：</strong>传统做法是弹"该时段已被占用"然后让用户返回重来，用户需要重新翻列表、重新选时间。这里直接把最优替代方案算出来放在第一位，用户一次点击即可完成改约。</div>
+</div>
+
+<div class="page">
+<h3><span class="no">页面 8</span>我的预约页</h3>
+<p>按状态分组展示，每条记录用语义色边框标识当前进度。</p>
+<div class="mock">
+<div class="row"><span>状态分组</span><span class="t">待审批（黄）/ 已通过（绿）/ 进行中（绿）/ 已完成（灰）/ 已取消（灰）</span></div>
+<div class="row"><span>卡片内容</span><span class="t">仪器名 + 实验室 + 时间段 + 用途 + 当前状态</span></div>
+<div class="row"><span>可用操作</span><span class="t">待审批 → 可取消；已通过 → 可签到；进行中 → 查看计时</span></div>
+</div>
+</div>
+
+<div class="page">
+<h3><span class="no">页面 9</span>试剂台账页</h3>
+<p>库存用进度条可视化，颜色随余量变化。</p>
+<div class="mock">
+<div class="row"><span>筛选标签</span><span class="t">全部 / 预警 N / 临期</span></div>
+<div class="row"><span>卡片第一行</span><span class="t">试剂名称</span></div>
+<div class="row"><span>卡片第二行</span><span class="t">规格 · 浓度 · 存放柜位</span></div>
+<div class="row"><span>卡片第三行</span><span class="t">库存进度条（颜色随余量变化）</span></div>
+<div class="row"><span>卡片第四行</span><span class="t">剩余量 + 状态文字 + "领用"按钮</span></div>
+</div>
+<table>
+<tr><th>库存状态</th><th>进度条颜色</th><th>卡片底色</th><th>提示文字</th></tr>
+<tr><td>充足</td><td><span class="chip" style="background:#97C459;color:#173404">翠绿</span></td><td>白色 + 描边</td><td>剩 18 瓶 · 充足</td></tr>
+<tr><td>偏低（临期）</td><td><span class="chip" style="background:#EF9F27;color:#412402">琥珀</span></td><td>琥珀浅底</td><td>2025-11-02 到期 ●</td></tr>
+<tr><td>告急（低于阈值）</td><td><span class="chip" style="background:#E24B4A;color:#fff">朱红</span></td><td>朱红浅底</td><td>剩 2 瓶 · 低于阈值 5 ●</td></tr>
+</table>
+</div>
+
+<div class="page">
+<h3><span class="no">页面 10</span>样品登记页</h3>
+<p>表单式录入，编号自动生成，测试项用标签多选。</p>
+<div class="mock">
+<div class="row"><span>样品编号</span><span class="t">自动生成，格式 SMP-20251009-007，只读</span></div>
+<div class="row"><span>样品名称</span><span class="t">文本输入</span></div>
+<div class="row"><span>成分 / 配方</span><span class="t">多行文本</span></div>
+<div class="row"><span>制备工艺</span><span class="t">文本输入</span></div>
+<div class="row"><span>目标测试项</span><span class="t">标签多选：SEM / XRD / FTIR + 自定义添加</span></div>
+<div class="row"><span>提示块</span><span class="t">绿底说明：关联预约后可自动带入，测试数据归档</span></div>
+<div class="row"><span>主按钮</span><span class="t">保存并生成编号</span></div>
+</div>
+</div>
+
+<div class="page">
+<h3><span class="no">页面 11</span>管理员审批台</h3>
+<p>管理员的核心工作台，含批量操作与操作日志。</p>
+<div class="mock">
+<div class="row"><span>标题栏</span><span class="t">"待审批预约" + 数量徽标（红底）</span></div>
+<div class="row"><span>审批卡片</span><span class="t">申请人 + 仪器 / 时段 + 用途 / 关联样品编号</span></div>
+<div class="row"><span>卡片按钮</span><span class="t">通过（绿）/ 驳回（红）</span></div>
+<div class="row"><span>批量操作</span><span class="t">勾选后"批量通过已选"（绿底）</span></div>
+<div class="row"><span>操作日志区</span><span class="t">按时间倒序：14:20 王管理员 通过了预约 · 张三 扫描电镜</span></div>
+<div class="row"><span>日志筛选</span><span class="t">"全部 ›" 进入按人/按时间筛选</span></div>
+</div>
+</div>
+
+<div class="page">
+<h3><span class="no">页面 12</span>我的 · 个人中心</h3>
+<p>角色不同，可见入口不同。</p>
+<div class="mock">
+<div class="row"><span>头部</span><span class="t">姓名 + 角色徽标 + 所属实验室</span></div>
+<div class="row"><span>学生可见</span><span class="t">我的预约 / 我的样品 / 我的领用记录</span></div>
+<div class="row"><span>老师可见</span><span class="t">上述全部 + 本实验室仪器管理</span></div>
+<div class="row"><span>管理员可见</span><span class="t">上述全部 + 用户名单 / 审批台 / 操作日志 / 公告管理 / 实验室管理</span></div>
+<div class="row"><span>通用</span><span class="t">修改密码 / 关于系统 / 退出登录</span></div>
+</div>
+</div>
+
+<h2 id="s9">九、后端接口清单</h2>
+<p>以下清单可直接交后端开发人员对照实现。所有接口统一前缀 <code>/api</code>，统一返回格式 <code>{ code, message, data }</code>。</p>
+
+<h3>9.1 认证与用户</h3>
+<table>
+<tr><th style="width:32%">接口</th><th style="width:16%">方法</th><th>说明</th></tr>
+<tr><td><code>/api/auth/login</code></td><td>POST</td><td>三角色登录，返回 token 与用户信息</td></tr>
+<tr><td><code>/api/auth/refresh</code></td><td>POST</td><td>token 续期</td></tr>
+<tr><td><code>/api/auth/password</code></td><td>PUT</td><td>修改密码</td></tr>
+<tr><td><code>/api/users/me</code></td><td>GET</td><td>当前用户信息</td></tr>
+<tr><td><code>/api/users</code></td><td>GET / POST</td><td>用户列表 / 新增（管理员）</td></tr>
+<tr><td><code>/api/users/:id</code></td><td>PUT / DELETE</td><td>修改角色或实验室归属 / 删除</td></tr>
+<tr><td><code>/api/users/import</code></td><td>POST</td><td>批量导入用户名单（Excel）</td></tr>
+</table>
+
+<h3>9.2 实验室与仪器</h3>
+<table>
+<tr><th style="width:32%">接口</th><th style="width:16%">方法</th><th>说明</th></tr>
+<tr><td><code>/api/labs</code></td><td>GET / POST</td><td>实验室列表 / 新增</td></tr>
+<tr><td><code>/api/labs/:id</code></td><td>PUT / DELETE</td><td>修改 / 删除</td></tr>
+<tr><td><code>/api/labs/:id/stats</code></td><td>GET</td><td>首页卡片统计数据（利用率、计数）</td></tr>
+<tr><td><code>/api/instruments</code></td><td>GET / POST</td><td>列表（支持 <code>?lab_id=&amp;status=</code>）/ 新增</td></tr>
+<tr><td><code>/api/instruments/:id</code></td><td>GET / PUT</td><td>详情 / 修改（含图片）</td></tr>
+<tr><td><code>/api/instruments/:id/status</code></td><td>PUT</td><td>切换空闲 / 占用 / 维护</td></tr>
+<tr><td><code>/api/instruments/:id/slots</code></td><td>GET</td><td>查询指定日期的时段占用情况（<code>?date=</code>）</td></tr>
+<tr><td><code>/api/instruments/:id/candidates</code></td><td>GET</td><td>同类型可替代仪器（冲突弹窗选项③用）</td></tr>
+</table>
+
+<h3>9.3 预约</h3>
+<table>
+<tr><th style="width:32%">接口</th><th style="width:16%">方法</th><th>说明</th></tr>
+<tr><td><code>/api/bookings</code></td><td>POST / GET</td><td>提交预约 / 查询列表（<code>?scope=mine|all&amp;status=</code>）</td></tr>
+<tr><td><code>/api/bookings/:id</code></td><td>GET</td><td>预约详情</td></tr>
+<tr><td><code>/api/bookings/:id/approve</code></td><td>POST</td><td>审批通过（管理员）</td></tr>
+<tr><td><code>/api/bookings/:id/reject</code></td><td>POST</td><td>驳回，需带原因（管理员）</td></tr>
+<tr><td><code>/api/bookings/batch-approve</code></td><td>POST</td><td>批量通过</td></tr>
+<tr><td><code>/api/bookings/:id/cancel</code></td><td>POST</td><td>取消预约</td></tr>
+<tr><td><code>/api/bookings/:id/checkin</code></td><td>POST</td><td>签到</td></tr>
+<tr><td><code>/api/bookings/:id/return</code></td><td>POST</td><td>归还确认（管理员）</td></tr>
+<tr><td><code>/api/bookings/:id/suggest</code></td><td>GET</td><td>冲突时推荐的可用时段（冲突弹窗选项①用）</td></tr>
+<tr><td><code>/api/bookings/queue</code></td><td>POST / DELETE</td><td>登记 / 取消排队候补</td></tr>
+</table>
+
+<h3>9.4 试剂、样品与通知</h3>
+<table>
+<tr><th style="width:32%">接口</th><th style="width:16%">方法</th><th>说明</th></tr>
+<tr><td><code>/api/reagents</code></td><td>GET / POST / PUT</td><td>试剂台账 CRUD</td></tr>
+<tr><td><code>/api/reagents/:id/consume</code></td><td>POST</td><td>领用 / 消耗登记，自动扣减</td></tr>
+<tr><td><code>/api/reagents/alerts</code></td><td>GET</td><td>库存预警与临期清单</td></tr>
+<tr><td><code>/api/reagents/logs</code></td><td>GET</td><td>领用历史（<code>?reagent_id=&amp;user_id=</code>）</td></tr>
+<tr><td><code>/api/samples</code></td><td>GET / POST / PUT</td><td>样品登记与查询</td></tr>
+<tr><td><code>/api/samples/:id/attachments</code></td><td>POST</td><td>上传测试数据文件</td></tr>
+<tr><td><code>/api/upload</code></td><td>POST</td><td>通用文件上传（图片 / PDF）</td></tr>
+<tr><td><code>/api/announcements</code></td><td>GET / POST</td><td>公告列表 / 发布（管理员）</td></tr>
+<tr><td><code>/api/notifications</code></td><td>GET / PUT</td><td>通知列表 / 标记已读</td></tr>
+<tr><td><code>/api/logs</code></td><td>GET</td><td>操作日志（<code>?user_id=&amp;action=&amp;from=&amp;to=</code>）</td></tr>
+</table>
+
+<h3>9.5 WebSocket 事件</h3>
+<table>
+<tr><th style="width:30%">事件名</th><th style="width:12%">方向</th><th>说明</th></tr>
+<tr><td><code>connect</code></td><td>C→S</td><td>连接时携带 token 认证</td></tr>
+<tr><td><code>booking:new</code></td><td>S→C</td><td>有新预约提交，管理员待审批 +1</td></tr>
+<tr><td><code>booking:approved</code></td><td>S→C</td><td>预约已审批，申请人收到通知</td></tr>
+<tr><td><code>booking:rejected</code></td><td>S→C</td><td>预约被驳回，带原因</td></tr>
+<tr><td><code>booking:conflict</code></td><td>S→C</td><td>某仪器时段冲突，触发前端刷新占用状态</td></tr>
+<tr><td><code>instrument:updated</code></td><td>S→C</td><td>仪器信息或状态被修改</td></tr>
+<tr><td><code>reagent:stock_changed</code></td><td>S→C</td><td>试剂库存变动</td></tr>
+<tr><td><code>announcement:new</code></td><td>S→C</td><td>管理员发布新公告</td></tr>
+</table>
+
+<h2 id="s10">十、数据库表结构</h2>
+<p>以下为建议表结构，后端可据此建表。字段类型按常规关系型数据库约定。</p>
+
+<pre><code>users           id, name, role(student|teacher|admin), student_id, employee_id,
+                password_hash, lab_access[], created_at, updated_at
+
+labs            id, name, code(501/502), location, manager_id, open_hours,
+                status(active|maintenance|closed), sort_order, version
+
+instruments     id, name, model, lab_id, code, photos[], manual_text, manual_file,
+                safety_notice, source, purchase_date, lifespan_years,
+                status(idle|occupied|maintenance|disabled), needs_approval,
+                requires_training, location_detail, next_calibration_date,
+                version, created_at
+
+bookings        id, user_id, instrument_id, start_time, end_time, purpose,
+                status(pending|approved|active|completed|cancelled|overdue),
+                actual_start, actual_end, checked_in_at, returned_at,
+                reject_reason, version, created_at
+
+reagents        id, name, cas_number, specification, concentration, location,
+                current_stock, unit, safety_level, expiry_date,
+                low_stock_threshold, version, created_at
+
+reagent_logs    id, reagent_id, user_id, quantity_used, purpose, sample_id,
+                used_at
+
+samples         id, code, name, user_id, composition, process, target_tests[],
+                version, created_at
+
+sample_files    id, sample_id, file_name, file_url, uploaded_at
+
+announcements   id, title, content, priority(normal|urgent), created_by, created_at
+
+notifications   id, user_id, type, title, content, ref_id, is_read, created_at
+
+operation_logs  id, user_id, action, target_type, target_id, detail, created_at</code></pre>
+
+<div class="warn"><strong>建表必读：</strong><code>labs</code> / <code>instruments</code> / <code>bookings</code> / <code>reagents</code> / <code>samples</code> 五张表<strong>必须包含 <code>version</code> 字段</strong>，用于多管理员并发编辑的乐观锁校验。这个字段必须在建表阶段预留，后期补加会导致历史数据无版本号，并发保护失效。更新时 SQL 应写成 <code>UPDATE ... SET version = version + 1 WHERE id = ? AND version = ?</code>，受影响行数为 0 即代表冲突。</div>
+
+<h2 id="s11">十一、开发阶段规划</h2>
+
+<table>
+<tr><th style="width:12%">阶段</th><th style="width:26%">交付内容</th><th>说明</th></tr>
+<tr><td><strong>阶段一</strong><br>已完成</td><td>需求与界面设计文档</td><td>本文档 + 9 张高保真设计图，用于评审与对齐</td></tr>
+<tr><td><strong>阶段二</strong></td><td>小程序前端原型（Mock 数据）</td><td>微信小程序原生代码，内置 Mock 数据，可在开发者工具中跑通全部交互，无需后端也能演示</td></tr>
+<tr><td><strong>阶段三</strong></td><td>前后端联调</td><td>替换 API 层为真实请求，接入 WebSocket 实时同步，处理异常与边界情况</td></tr>
+<tr><td><strong>阶段四</strong></td><td>内测与上线</td><td>小范围真机测试，修正体验问题，提交微信审核</td></tr>
+</table>
+
+<div class="ok"><strong>阶段二的关键设计：</strong>前端所有数据请求收敛到单独的 <code>api/</code> 目录，Mock 与真实接口通过一个开关切换。后端就绪后，只需替换该目录下的实现，页面代码零改动。这能让前端在后端未完成时就开始开发与验收。</div>
+
+<h2 id="s12">十二、待确认事项</h2>
+
+<table>
+<tr><th style="width:6%">序号</th><th style="width:26%">事项</th><th>为什么需要你确认</th></tr>
+<tr><td>1</td><td>后端技术栈</td><td>Java / PHP / Python / Node？影响前端请求封装风格与错误码约定</td></tr>
+<tr><td>2</td><td>服务器域名与 HTTPS</td><td>小程序正式版强制要求 HTTPS 备案域名，若只有内网 IP 需提前申请</td></tr>
+<tr><td>3</td><td>管理员具体人数</td><td>2–3 人时操作日志可平铺；人多则需增加「按人筛选」入口</td></tr>
+<tr><td>4</td><td>「免审批仪器」开关</td><td>是否需要部分仪器（如超纯水机）跳过审批直接生效</td></tr>
+<tr><td>5</td><td>「需培训才能预约」开关</td><td>是否保留培训前置校验，当前仅预留字段未做校验逻辑</td></tr>
+<tr><td>6</td><td>仪器台账数据</td><td>若提供现有仪器清单，可整理为标准 JSON / Excel 供后端直接导入</td></tr>
+<tr><td>7</td><td>是否对接学校统一身份认证</td><td>若对接 CAS，可免去密码管理与用户预录入</td></tr>
+</table>
+
+<div class="footer">
+  <p>实验室管家 · 微信小程序　功能与界面文档　v1.0　2026-10-09</p>
+  <p>本文件为需求评审稿，确认后进入前端原型开发阶段。</p>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<view class="screen"><view class="row"><view><view class="title">实验室管家</view><view class="subtitle">{{today}} · {{user.name}}</view></view><view class="pill" bindtap="go" data-url="/pages/notifications/index">通知 {{unread}}</view></view>
+<view class="notice">本地演示 · 共用当前设备的数据</view><view wx:if="{{error}}" class="notice error">{{error}}</view>
+<view class="section">今日预约</view><view wx:if="{{!bookings.length}}" class="card empty">今天还没有预约</view>
+<view wx:for="{{bookings}}" wx:key="id" class="card" bindtap="go" data-url="/pages/bookings/detail/index?id={{item.id}}">
+<view class="row"><view class="heading">{{item.instrumentName}}</view><view class="pill">{{item.statusLabel}}</view></view>
+<view class="large">{{item.startClock}}–{{item.endClock}}</view><view class="muted">查看详情与签到 ›</view></view>
+<button bindtap="go" data-url="/pages/instruments/list/index">＋ 预约仪器</button>
+<button wx:if="{{canManage}}" class="secondary" bindtap="go" data-url="/pages/admin/index">管理工作台</button>
+<view class="section">实验室</view><view wx:for="{{labs}}" wx:key="id" class="card" bindtap="go" data-url="/pages/instruments/list/index?lab={{item.id}}">
+<view class="heading">{{item.id}} {{item.name}} ›</view><view class="muted">仪器 {{item.total}} 台 · {{item.open}}–{{item.close}}</view>
+<view class="line"></view><view class="row small"><text>空闲 {{item.free}}</text><text>使用中 {{item.using}}</text><text>维护 {{item.maintenance}}</text></view></view></view>

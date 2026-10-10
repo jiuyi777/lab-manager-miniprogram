@@ -1,0 +1,8 @@
+<view class="screen"><view class="title">预约详情</view><view wx:if="{{error}}" class="notice error">{{error}}</view><block wx:if="{{item}}">
+<view class="card"><view class="row"><view class="heading">{{item.instrumentName}}</view><view class="pill">{{item.statusLabel}}</view></view><view>{{item.startText}}</view><view>至 {{item.endText}}</view><view class="line"></view><view>用途：{{item.purpose}}</view><view wx:if="{{item.sampleId}}">样品：{{item.sampleId}}</view></view>
+<view wx:if="{{item.reason}}" class="notice warning">驳回原因：{{item.reason}}</view><view wx:if="{{item.isOverdue}}" class="notice warning">已超出预约结束时间，请结束使用或联系管理员。</view>
+<view class="card"><view class="heading">使用记录</view><view wx:if="{{item.actualStartText}}">签到：{{item.actualStartText}}</view><view wx:if="{{item.actualEndText}}">用户结束：{{item.actualEndText}}</view><view wx:if="{{item.confirmedText}}">管理员确认：{{item.confirmedText}}</view><view wx:if="{{!item.actualStartText}}" class="muted">尚未签到；仅预约时段内可签到。</view></view>
+<button wx:if="{{item.canCheckin}}" data-action="checkin" bindtap="run" disabled="{{busy}}">到场签到</button>
+<button wx:if="{{item.canFinish}}" data-action="finish" bindtap="run" disabled="{{busy}}">结束使用</button>
+<button wx:if="{{item.canCancel}}" class="secondary" data-action="cancel" bindtap="run" disabled="{{busy}}">取消预约</button>
+<view wx:if="{{item.status === 'awaiting_return'}}" class="notice">已记录用户结束时间，等待管理员确认归还。</view></block></view>

@@ -1,0 +1,404 @@
+{
+  "title": "实验室管家 · 全界面设计图",
+  "created": "2026-10-09",
+  "tool": "built-in image_gen",
+  "screenCount": 36,
+  "boards": [
+    {
+      "number": 1,
+      "title": "01 · 登录与账号",
+      "file": "01-登录与账号.png",
+      "pages": [
+        {
+          "title": "01 身份选择",
+          "annotations": [
+            "A 选择登录身份；权限以账号为准。",
+            "B 进入学号或工号登录表单。",
+            "C 查看网络状态与连接帮助。"
+          ]
+        },
+        {
+          "title": "02 账号登录",
+          "annotations": [
+            "A 输入学号或工号及密码。",
+            "B 验证账号并进入对应首页。",
+            "C 忘记密码时联系管理员重置。"
+          ]
+        },
+        {
+          "title": "03 修改密码",
+          "annotations": [
+            "A 验证当前密码。",
+            "B 设置并再次确认新密码。",
+            "C 保存新密码后重新登录。"
+          ]
+        }
+      ],
+      "prompt": "Use case: ui-mockup. Create a high-resolution LANDSCAPE annotated UI design board approximately 3072x2304, containing exactly THREE full portrait mobile app screens side by side with a separate compact FUNCTION LEGEND under EACH screen. One image only. App: 实验室管家. Reference image is the user's APPROVED visual direction: reproduce its WHITE dominant background, thin dark outlines, simple cards, BLACK text and BLACK primary buttons. Black controls may have a very slight green undertone #202A25, NOT a dark theme. Main canvas warm white #F7F8F5, white card surfaces, charcoal text, muted sage #DBE5DA and tiny pale cream #F0E6CA accents. Approx 90% neutral whites. Flat layout plus extremely restrained shallow neumorphic shadows, never glossy or inflated. Thin gray card borders, medium corners, clean monochrome outline icons. No colorful hero, no decorative 3D instruments. Typography Chinese headings reference 方正兰亭黑 and Chinese body reference 汉仪旗黑, natural spacing and clear readable characters. Reuse exact reference visual language consistently across all screens. \nBoard format: light plain white background, small heading at top, three equal columns, each with page number/title above a clean rectangular full mobile screen (no physical phones, no perspective, no giant device frames, no dynamic island). Screen contents must fit without cropping. Each screen has small standard WeChat mini-program top bar and a back arrow on secondary pages. Body at practical readable phone size, not microtext. Bottom tabs only where appropriate for top level screens 首页 / 预约 / 试剂 / 我的. Do NOT add menus on sign-in forms or modal views. No scrollbars anywhere.\nANNOTATIONS: Three tiny readable circled letters A B C in the LEFT MARGIN adjacent to the corresponding major UI regions of EACH screen, with short fine connector strokes. Do not place annotation badges on top of text. A/B/C repeat per screen. Under each screen print exactly the three provided Chinese legend lines. All legends OUTSIDE phone UI; the letters are review annotations not actual app controls. Keep UI region about 80% of available height and legend below ~15%, all crisp. Do not use arrows spanning across screens. Each screen is an independent example snapshot. Interface copy in Chinese; board titles and legends exact. Do not invent extra promotional words or controls. Fields contain plausible illustrative data, not real user data. Preserve necessary actions, no fake charts. \nBoard title: 01 · 登录与账号\nCOLUMN 1: 01 身份选择\nUI: Small brand 实验室管家; heading 选择身份; A three outlined stacked role cards 学生 / 老师 / 管理员 with short descriptors 仪器预约与登记 / 本实验室审批 / 全局维护与审批; 学生 selected pale sage; B near-black 进入登录 button; C small 网络连接正常 line and 校园网或校园 VPN hint, 帮助 link.\nExact legend below: A 选择登录身份；权限以账号为准。\nB 进入学号或工号登录表单。\nC 查看网络状态与连接帮助。\nCOLUMN 2: 02 账号登录\nUI: A top current identity 学生 with 切换 link. Labeled fields 学号 20260018, 密码 masked, eye icon. B solid black 登录 button. C 忘记密码？联系管理员 link and 账号由管理员预录入 note. No signup or social login.\nExact legend below: A 输入学号或工号及密码。\nB 验证账号并进入对应首页。\nC 忘记密码时联系管理员重置。\nCOLUMN 3: 03 修改密码\nUI: 首次登录 subtitle 请先修改初始密码; A 当前密码 masked; B 新密码 and 确认新密码 masked, compact inline matching hint; C 保存并重新登录 button. Ordinary change password uses same form.\nExact legend below: A 验证当前密码。\nB 设置并再次确认新密码。\nC 保存新密码后重新登录。",
+      "correctionPrompt": null
+    },
+    {
+      "number": 2,
+      "title": "02 · 首页与仪器查询",
+      "file": "02-首页与仪器查询.png",
+      "pages": [
+        {
+          "title": "04 学生首页",
+          "annotations": [
+            "A 搜索仪器、实验室和查看通知。",
+            "B 查看今日预约并到场签到。",
+            "C 新建预约或进入实验室列表。"
+          ]
+        },
+        {
+          "title": "05 仪器列表",
+          "annotations": [
+            "A 搜索并按仪器状态筛选。",
+            "B 查看位置和当前使用状态。",
+            "C 选择未来时段或查看维护进度。"
+          ]
+        },
+        {
+          "title": "06 仪器详情",
+          "annotations": [
+            "A 查看仪器信息、位置与负责人。",
+            "B 阅读使用方法、安全须知和档案。",
+            "C 查看时间表并发起预约。"
+          ]
+        }
+      ],
+      "prompt": "Use case: ui-mockup. Create a high-resolution LANDSCAPE annotated UI design board approximately 3072x2304, containing exactly THREE full portrait mobile app screens side by side with a separate compact FUNCTION LEGEND under EACH screen. One image only. App: 实验室管家. Reference image is the user's APPROVED visual direction: reproduce its WHITE dominant background, thin dark outlines, simple cards, BLACK text and BLACK primary buttons. Black controls may have a very slight green undertone #202A25, NOT a dark theme. Main canvas warm white #F7F8F5, white card surfaces, charcoal text, muted sage #DBE5DA and tiny pale cream #F0E6CA accents. Approx 90% neutral whites. Flat layout plus extremely restrained shallow neumorphic shadows, never glossy or inflated. Thin gray card borders, medium corners, clean monochrome outline icons. No colorful hero, no decorative 3D instruments. Typography Chinese headings reference 方正兰亭黑 and Chinese body reference 汉仪旗黑, natural spacing and clear readable characters. Reuse exact reference visual language consistently across all screens. \nBoard format: light plain white background, small heading at top, three equal columns, each with page number/title above a clean rectangular full mobile screen (no physical phones, no perspective, no giant device frames, no dynamic island). Screen contents must fit without cropping. Each screen has small standard WeChat mini-program top bar and a back arrow on secondary pages. Body at practical readable phone size, not microtext. Bottom tabs only where appropriate for top level screens 首页 / 预约 / 试剂 / 我的. Do NOT add menus on sign-in forms or modal views. No scrollbars anywhere.\nANNOTATIONS: Three tiny readable circled letters A B C in the LEFT MARGIN adjacent to the corresponding major UI regions of EACH screen, with short fine connector strokes. Do not place annotation badges on top of text. A/B/C repeat per screen. Under each screen print exactly the three provided Chinese legend lines. All legends OUTSIDE phone UI; the letters are review annotations not actual app controls. Keep UI region about 80% of available height and legend below ~15%, all crisp. Do not use arrows spanning across screens. Each screen is an independent example snapshot. Interface copy in Chinese; board titles and legends exact. Do not invent extra promotional words or controls. Fields contain plausible illustrative data, not real user data. Preserve necessary actions, no fake charts. \nSecond reference is previous board: MATCH its scale, annotation layout and color scheme.\nBoard title: 02 · 首页与仪器查询\nCOLUMN 1: 04 学生首页\nUI: Closely match reference homepage: A 实验室管家 title, notification bell, search 搜索仪器或实验室. B 今日预约 card 扫描电子显微镜, 待签到, 14:00–16:00, 501 实验室, 查看详情 / 到场签到. C 预约仪器 wide action row, 实验室 list 501 材料表征实验室 仪器12台 空闲7 使用中3 维护2; 502 化学分析实验室 仪器8台 空闲5 使用中2 维护1. Bottom tabs 首页 selected.\nExact legend below: A 搜索仪器、实验室和查看通知。\nB 查看今日预约并到场签到。\nC 新建预约或进入实验室列表。\nCOLUMN 2: 05 仪器列表\nUI: Title 501 实验室. A search and filter pills 全部 空闲 使用中 维护 我的. B cards 扫描电子显微镜 当前空闲, X射线衍射仪 使用中·预计16:00结束, 红外光谱仪 维护中. Each has brief location. C first two have 选择预约时段 button including occupied one; maintenance card 查看维护. Slim text 当前状态不代表未来时段.\nExact legend below: A 搜索并按仪器状态筛选。\nB 查看位置和当前使用状态。\nC 选择未来时段或查看维护进度。\nCOLUMN 3: 06 仪器详情\nUI: Title 仪器详情. A compact instrument photo placeholder labeled 仪器图片 (simple line illustration only), 扫描电子显微镜 SEM-01, 501室B区, 负责人 王老师. B thin outline accordion rows 使用方法 / 安全须知 / 仪器档案; show short safety strip 需培训合格后预约 and 次次校准 avoid typo use 下次校准 2027-03-01. C fixed footer 查看完整时间表 outlined, 选择时间预约 black.\nExact legend below: A 查看仪器信息、位置与负责人。\nB 阅读使用方法、安全须知和档案。\nC 查看时间表并发起预约。",
+      "correctionPrompt": null
+    },
+    {
+      "number": 3,
+      "title": "03 · 提交预约与候补",
+      "file": "03-提交预约与候补.png",
+      "pages": [
+        {
+          "title": "07 选择时段",
+          "annotations": [
+            "A 切换日期并查看时段占用。",
+            "B 填写时间、用途并关联样品。",
+            "C 校验时段和资格后提交申请。"
+          ]
+        },
+        {
+          "title": "08 时段冲突",
+          "annotations": [
+            "A 告知冲突时段并保留表单。",
+            "B 选择推荐时段后重新确认。",
+            "C 查看时间表、换仪器或候补。"
+          ]
+        },
+        {
+          "title": "09 我的候补",
+          "annotations": [
+            "A 查看候补仪器、日期和时长。",
+            "B 查看排队状态与站内提醒。",
+            "C 查找其他时段或取消候补。"
+          ]
+        }
+      ],
+      "prompt": "Use case: ui-mockup. Create a high-resolution LANDSCAPE annotated UI design board approximately 3072x2304, containing exactly THREE full portrait mobile app screens side by side with a separate compact FUNCTION LEGEND under EACH screen. One image only. App: 实验室管家. Reference image is the user's APPROVED visual direction: reproduce its WHITE dominant background, thin dark outlines, simple cards, BLACK text and BLACK primary buttons. Black controls may have a very slight green undertone #202A25, NOT a dark theme. Main canvas warm white #F7F8F5, white card surfaces, charcoal text, muted sage #DBE5DA and tiny pale cream #F0E6CA accents. Approx 90% neutral whites. Flat layout plus extremely restrained shallow neumorphic shadows, never glossy or inflated. Thin gray card borders, medium corners, clean monochrome outline icons. No colorful hero, no decorative 3D instruments. Typography Chinese headings reference 方正兰亭黑 and Chinese body reference 汉仪旗黑, natural spacing and clear readable characters. Reuse exact reference visual language consistently across all screens. \nBoard format: light plain white background, small heading at top, three equal columns, each with page number/title above a clean rectangular full mobile screen (no physical phones, no perspective, no giant device frames, no dynamic island). Screen contents must fit without cropping. Each screen has small standard WeChat mini-program top bar and a back arrow on secondary pages. Body at practical readable phone size, not microtext. Bottom tabs only where appropriate for top level screens 首页 / 预约 / 试剂 / 我的. Do NOT add menus on sign-in forms or modal views. No scrollbars anywhere.\nANNOTATIONS: Three tiny readable circled letters A B C in the LEFT MARGIN adjacent to the corresponding major UI regions of EACH screen, with short fine connector strokes. Do not place annotation badges on top of text. A/B/C repeat per screen. Under each screen print exactly the three provided Chinese legend lines. All legends OUTSIDE phone UI; the letters are review annotations not actual app controls. Keep UI region about 80% of available height and legend below ~15%, all crisp. Do not use arrows spanning across screens. Each screen is an independent example snapshot. Interface copy in Chinese; board titles and legends exact. Do not invent extra promotional words or controls. Fields contain plausible illustrative data, not real user data. Preserve necessary actions, no fake charts. \nSecond reference defines board layout and style; maintain same design family.\nBoard title: 03 · 提交预约与候补\nCOLUMN 1: 07 选择时段\nUI: A title 预约仪器; 扫描电子显微镜; date selector 10月9日 周五, compact accurate horizontal timeline 08 10 12 14 16 18 20 with six intervals and legend 可约 已约 待审. B form 开始14:00 结束16:00, 用途 形貌观察, 关联样品 SMP-20261009-007. C thin pale cream notice 需审批后生效, primary 提交预约. Timetable selected14-16 is available.\nExact legend below: A 切换日期并查看时段占用。\nB 填写时间、用途并关联样品。\nC 校验时段和资格后提交申请。\nCOLUMN 2: 08 时段冲突\nUI: Underlying booking form dimmed very subtly under WHITE centered or bottom modal. A heading 该时段已被占用; requested14-16 conflicts 占用13:00–15:00. B recommended pale sage card 改选15:00–17:00 subtext 返回确认后重新提交. C secondary choices 查看完整时间表 / 换同类型仪器 / 登记候补; dismiss 返回修改. Do not indicate automatically successful booking.\nExact legend below: A 告知冲突时段并保留表单。\nB 选择推荐时段后重新确认。\nC 查看时间表、换仪器或候补。\nCOLUMN 3: 09 我的候补\nUI: A selected instrument SEM-01; date10月9日; 希望时段15:00–17:00; duration2小时. B queue card 等待中, 前方2人, notice 有可用时段后在站内通知. C controls 查看时间表 and 取消候补. Small note 以通知中的确认期限为准. No guaranteed phone push.\nExact legend below: A 查看候补仪器、日期和时长。\nB 查看排队状态与站内提醒。\nC 查找其他时段或取消候补。",
+      "correctionPrompt": null
+    },
+    {
+      "number": 4,
+      "title": "04 · 预约记录与使用",
+      "file": "04-预约记录与使用-校正版.png",
+      "pages": [
+        {
+          "title": "10 我的预约",
+          "annotations": [
+            "A 按状态筛选预约与候补。",
+            "B 查看仪器、时段和审批结果。",
+            "C 根据状态签到、取消或查看原因。"
+          ]
+        },
+        {
+          "title": "11 预约详情",
+          "annotations": [
+            "A 核对仪器、时段、用途和样品。",
+            "B 查看审批与使用进度。",
+            "C 到场签到或取消未开始预约。"
+          ]
+        },
+        {
+          "title": "12 使用中与结束",
+          "annotations": [
+            "A 查看实际开始时间和使用时长。",
+            "B 关联记录并联系管理员报故障。",
+            "C 提交结束，等待管理员归还确认。"
+          ]
+        }
+      ],
+      "prompt": "Use case: ui-mockup. Create a high-resolution LANDSCAPE annotated UI design board approximately 3072x2304, containing exactly THREE full portrait mobile app screens side by side with a separate compact FUNCTION LEGEND under EACH screen. One image only. App: 实验室管家. Reference image is the user's APPROVED visual direction: reproduce its WHITE dominant background, thin dark outlines, simple cards, BLACK text and BLACK primary buttons. Black controls may have a very slight green undertone #202A25, NOT a dark theme. Main canvas warm white #F7F8F5, white card surfaces, charcoal text, muted sage #DBE5DA and tiny pale cream #F0E6CA accents. Approx 90% neutral whites. Flat layout plus extremely restrained shallow neumorphic shadows, never glossy or inflated. Thin gray card borders, medium corners, clean monochrome outline icons. No colorful hero, no decorative 3D instruments. Typography Chinese headings reference 方正兰亭黑 and Chinese body reference 汉仪旗黑, natural spacing and clear readable characters. Reuse exact reference visual language consistently across all screens. \nBoard format: light plain white background, small heading at top, three equal columns, each with page number/title above a clean rectangular full mobile screen (no physical phones, no perspective, no giant device frames, no dynamic island). Screen contents must fit without cropping. Each screen has small standard WeChat mini-program top bar and a back arrow on secondary pages. Body at practical readable phone size, not microtext. Bottom tabs only where appropriate for top level screens 首页 / 预约 / 试剂 / 我的. Do NOT add menus on sign-in forms or modal views. No scrollbars anywhere.\nANNOTATIONS: Three tiny readable circled letters A B C in the LEFT MARGIN adjacent to the corresponding major UI regions of EACH screen, with short fine connector strokes. Do not place annotation badges on top of text. A/B/C repeat per screen. Under each screen print exactly the three provided Chinese legend lines. All legends OUTSIDE phone UI; the letters are review annotations not actual app controls. Keep UI region about 80% of available height and legend below ~15%, all crisp. Do not use arrows spanning across screens. Each screen is an independent example snapshot. Interface copy in Chinese; board titles and legends exact. Do not invent extra promotional words or controls. Fields contain plausible illustrative data, not real user data. Preserve necessary actions, no fake charts. \nSecond reference defines annotation format and matching style.\nBoard title: 04 · 预约记录与使用\nCOLUMN 1: 10 我的预约\nUI: A title 我的预约, wrapped pills 全部 待审批 已通过 进行中 已完成 已取消 已驳回; filter 我的候补 link. B three compact cards SEM-01 已通过 10月9日14:00–16:00; XRD-02 待审批 10月10日10:00–12:00; FTIR-03 已驳回 培训资格未满足. C first card 查看详情 / 到场签到; second 取消申请; third 查看原因. Bottom 预约 selected.\nExact legend below: A 按状态筛选预约与候补。\nB 查看仪器、时段和审批结果。\nC 根据状态签到、取消或查看原因。\nCOLUMN 2: 11 预约详情\nUI: A 预约详情 and status 已通过, scanning SEM-01, date10月9日14:00–16:00, 用途形貌观察 and sample SMP-20261009-007. B timeline 提交申请13:00 → 审批通过13:10 → 等待签到. C bottom 到场签到 black and 取消预约 outline; text 仅未开始预约可取消.\nExact legend below: A 核对仪器、时段、用途和样品。\nB 查看审批与使用进度。\nC 到场签到或取消未开始预约。\nCOLUMN 3: 12 使用中与结束\nUI: A title 使用记录 status 使用中; SEM-01; actual start14:03; current15:30; timer 已使用1小时27分. B row 关联样品, 联系管理员, 报告故障. C footer 结束使用 black; small explanatory sheet preview 用户结束15:40 / 管理员确认待处理 (separate inset clearly labeled 结束后状态, do not imply already ended main).\nExact legend below: A 查看实际开始时间和使用时长。\nB 关联记录并联系管理员报故障。\nC 提交结束，等待管理员归还确认。",
+      "correctionPrompt": "Use case: text-localization. Edit the attached design board, maintaining exact same aspect ratio and high resolution. Make exactly these small corrections and preserve every other layout/text/color detail. In RIGHTMOST screen 12 change top system clock from 13:30 to 15:30 to match 当前时间15:30. In that same screen change the inset heading 结束后状态 to 结束后状态示例, keeping the lower preview clearly just a preview. In LEFT screen 10 third FTIR booking change 10月8日（周三） to 10月8日（周四）, because year2026. Leave all else unchanged."
+    },
+    {
+      "number": 5,
+      "title": "05 · 试剂查询与领用",
+      "file": "05-试剂查询与领用.png",
+      "pages": [
+        {
+          "title": "13 试剂台账",
+          "annotations": [
+            "A 搜索试剂并筛选库存或有效期。",
+            "B 分别查看库存、临期和危险标识。",
+            "C 进入详情或登记领用。"
+          ]
+        },
+        {
+          "title": "14 试剂详情",
+          "annotations": [
+            "A 核对名称、规格和库存单位。",
+            "B 查看批次、柜位、有效期与安全须知。",
+            "C 查领用记录；管理员可入库调整。"
+          ]
+        },
+        {
+          "title": "15 领用登记",
+          "annotations": [
+            "A 选择正确试剂与批次。",
+            "B 填写数量、用途和关联样品。",
+            "C 核对后登记并扣减库存。"
+          ]
+        }
+      ],
+      "prompt": "Use case: ui-mockup. Create a high-resolution LANDSCAPE annotated UI design board approximately 3072x2304, containing exactly THREE full portrait mobile app screens side by side with a separate compact FUNCTION LEGEND under EACH screen. One image only. App: 实验室管家. Reference image is the user's APPROVED visual direction: reproduce its WHITE dominant background, thin dark outlines, simple cards, BLACK text and BLACK primary buttons. Black controls may have a very slight green undertone #202A25, NOT a dark theme. Main canvas warm white #F7F8F5, white card surfaces, charcoal text, muted sage #DBE5DA and tiny pale cream #F0E6CA accents. Approx 90% neutral whites. Flat layout plus extremely restrained shallow neumorphic shadows, never glossy or inflated. Thin gray card borders, medium corners, clean monochrome outline icons. No colorful hero, no decorative 3D instruments. Typography Chinese headings reference 方正兰亭黑 and Chinese body reference 汉仪旗黑, natural spacing and clear readable characters. Reuse exact reference visual language consistently across all screens. \nBoard format: light plain white background, small heading at top, three equal columns, each with page number/title above a clean rectangular full mobile screen (no physical phones, no perspective, no giant device frames, no dynamic island). Screen contents must fit without cropping. Each screen has small standard WeChat mini-program top bar and a back arrow on secondary pages. Body at practical readable phone size, not microtext. Bottom tabs only where appropriate for top level screens 首页 / 预约 / 试剂 / 我的. Do NOT add menus on sign-in forms or modal views. No scrollbars anywhere.\nANNOTATIONS: Three tiny readable circled letters A B C in the LEFT MARGIN adjacent to the corresponding major UI regions of EACH screen, with short fine connector strokes. Do not place annotation badges on top of text. A/B/C repeat per screen. Under each screen print exactly the three provided Chinese legend lines. All legends OUTSIDE phone UI; the letters are review annotations not actual app controls. Keep UI region about 80% of available height and legend below ~15%, all crisp. Do not use arrows spanning across screens. Each screen is an independent example snapshot. Interface copy in Chinese; board titles and legends exact. Do not invent extra promotional words or controls. Fields contain plausible illustrative data, not real user data. Preserve necessary actions, no fake charts. \nSecond reference defines consistent board format. Keep UI sparse and readable.\nBoard title: 05 · 试剂查询与领用\nCOLUMN 1: 13 试剂台账\nUI: A title 试剂台账, search 搜索名称或CAS号; pills 全部 库存预警 临期. B cards 氯化钠 500g/瓶 当前18瓶 A柜01; 无水乙醇 500mL/瓶 当前2瓶 库存预警 易燃; 缓冲液 当前6瓶 临期2026-11-02. Small progress bars with captions 阈值5瓶, separate expiry badges. C each 查看详情 and 领用. Bottom试剂 selected.\nExact legend below: A 搜索试剂并筛选库存或有效期。\nB 分别查看库存、临期和危险标识。\nC 进入详情或登记领用。\nCOLUMN 2: 14 试剂详情\nUI: A title 氯化钠; CAS7647-14-5; 规格500g/瓶; 单位瓶; 当前库存18瓶. B 批次与柜位 card 批次R20261001 / A柜01 / 有效期2028-10-01; 安全须知 accordion. C 领用记录 row and black 登记领用. Compact administrator only row 入库与调整 with 管理员 chip.\nExact legend below: A 核对名称、规格和库存单位。\nB 查看批次、柜位、有效期与安全须知。\nC 查领用记录；管理员可入库调整。\nCOLUMN 3: 15 领用登记\nUI: A reagent 氯化钠 批次R20261001 库存18瓶; B quantity input 2 瓶 with minus plus, 用途 样品制备, 关联样品 optional SMP-20261009-007. C summary 本次领用2瓶 / 登记后剩余16瓶, primary 确认领用 and cancel. Show no permission for editing stock directly.\nExact legend below: A 选择正确试剂与批次。\nB 填写数量、用途和关联样品。\nC 核对后登记并扣减库存。",
+      "correctionPrompt": null
+    },
+    {
+      "number": 6,
+      "title": "06 · 样品登记与归档",
+      "file": "06-样品登记与归档-校正版.png",
+      "pages": [
+        {
+          "title": "16 我的样品",
+          "annotations": [
+            "A 搜索或新建自己的样品。",
+            "B 查看样品编号与目标测试项。",
+            "C 进入详情或按测试项筛选。"
+          ]
+        },
+        {
+          "title": "17 新建样品",
+          "annotations": [
+            "A 填写样品名称；编号保存后生成。",
+            "B 记录配方、工艺和目标测试项。",
+            "C 保存样品供预约时关联。"
+          ]
+        },
+        {
+          "title": "18 样品详情",
+          "annotations": [
+            "A 查看或编辑样品档案。",
+            "B 查看关联预约及测试过程。",
+            "C 上传、查看与下载测试文件。"
+          ]
+        }
+      ],
+      "prompt": "Use case: ui-mockup. Create a high-resolution LANDSCAPE annotated UI design board approximately 3072x2304, containing exactly THREE full portrait mobile app screens side by side with a separate compact FUNCTION LEGEND under EACH screen. One image only. App: 实验室管家. Reference image is the user's APPROVED visual direction: reproduce its WHITE dominant background, thin dark outlines, simple cards, BLACK text and BLACK primary buttons. Black controls may have a very slight green undertone #202A25, NOT a dark theme. Main canvas warm white #F7F8F5, white card surfaces, charcoal text, muted sage #DBE5DA and tiny pale cream #F0E6CA accents. Approx 90% neutral whites. Flat layout plus extremely restrained shallow neumorphic shadows, never glossy or inflated. Thin gray card borders, medium corners, clean monochrome outline icons. No colorful hero, no decorative 3D instruments. Typography Chinese headings reference 方正兰亭黑 and Chinese body reference 汉仪旗黑, natural spacing and clear readable characters. Reuse exact reference visual language consistently across all screens. \nBoard format: light plain white background, small heading at top, three equal columns, each with page number/title above a clean rectangular full mobile screen (no physical phones, no perspective, no giant device frames, no dynamic island). Screen contents must fit without cropping. Each screen has small standard WeChat mini-program top bar and a back arrow on secondary pages. Body at practical readable phone size, not microtext. Bottom tabs only where appropriate for top level screens 首页 / 预约 / 试剂 / 我的. Do NOT add menus on sign-in forms or modal views. No scrollbars anywhere.\nANNOTATIONS: Three tiny readable circled letters A B C in the LEFT MARGIN adjacent to the corresponding major UI regions of EACH screen, with short fine connector strokes. Do not place annotation badges on top of text. A/B/C repeat per screen. Under each screen print exactly the three provided Chinese legend lines. All legends OUTSIDE phone UI; the letters are review annotations not actual app controls. Keep UI region about 80% of available height and legend below ~15%, all crisp. Do not use arrows spanning across screens. Each screen is an independent example snapshot. Interface copy in Chinese; board titles and legends exact. Do not invent extra promotional words or controls. Fields contain plausible illustrative data, not real user data. Preserve necessary actions, no fake charts. \nSecond reference defines matching board format and style.\nBoard title: 06 · 样品登记与归档\nCOLUMN 1: 16 我的样品\nUI: A title 我的样品, search 编号或名称, black small 新建. B two outlined cards SMP-20261009-007 碳材料样品 SEM XRD and SMP-20261008-003 薄膜样品 FTIR. C each details chevron, bottom small 筛选测试项. No public all samples for student.\nExact legend below: A 搜索或新建自己的样品。\nB 查看样品编号与目标测试项。\nC 进入详情或按测试项筛选。\nCOLUMN 2: 17 新建样品\nUI: A title 新建样品 and 编号 保存后自动生成; fields 样品名称 碳材料样品. B 成分/配方 碳基材料, 制备工艺 热处理, tags SEM selected XRD selected FTIR +自定义. C solid 保存并生成编号. No pretend code created before saving.\nExact legend below: A 填写样品名称；编号保存后生成。\nB 记录配方、工艺和目标测试项。\nC 保存样品供预约时关联。\nCOLUMN 3: 18 样品详情\nUI: A header 碳材料样品 code SMP-20261009-007 with 编辑. B basic metadata and 关联预约 扫描电子显微镜10月9日14:00–16:00, compact 新建关联预约. C 测试数据 list SEM-007.tif / XRD-007.csv with small file icons and 下载, black 上传测试数据. No automated instrument acquisition.\nExact legend below: A 查看或编辑样品档案。\nB 查看关联预约及测试过程。\nC 上传、查看与下载测试文件。",
+      "correctionPrompt": "Use case: text-localization. Edit the attached design board, maintaining exact same aspect ratio and high resolution. Make ONLY these corrections, preserve all other content, style and layout pixel-faithfully: LEFT screen16 sample1 creation date change2025年10月9日 to2026年10月9日; sample2 creation date change2025年10月8日 to2026年10月8日. RIGHT screen18 creation date change2025年10月9日 to2026年10月9日. These sample IDs are2026. In LEFT screen16 bottom navigation, remove selected highlight from首页 and select我的 with pale sage pill since this is我的样品. Do not change any other texts."
+    },
+    {
+      "number": 7,
+      "title": "07 · 审批与归还",
+      "file": "07-审批与归还-校正版.png",
+      "pages": [
+        {
+          "title": "19 管理工作台",
+          "annotations": [
+            "A 按权限范围查看待办统计。",
+            "B 处理归还、维护与校准提醒。",
+            "C 进入各管理模块；教师仅见授权入口。"
+          ]
+        },
+        {
+          "title": "20 预约审批",
+          "annotations": [
+            "A 筛选授权范围内待处理申请。",
+            "B 核对资格和时段后通过或驳回。",
+            "C 批量审批；冲突申请单独提示。"
+          ]
+        },
+        {
+          "title": "21 归还确认",
+          "annotations": [
+            "A 核对使用人及实际使用时间。",
+            "B 检查仪器、清理情况并记录备注。",
+            "C 确认归还或转入维护处理。"
+          ]
+        }
+      ],
+      "prompt": "Use case: ui-mockup. Create a high-resolution LANDSCAPE annotated UI design board approximately 3072x2304, containing exactly THREE full portrait mobile app screens side by side with a separate compact FUNCTION LEGEND under EACH screen. One image only. App: 实验室管家. Reference image is the user's APPROVED visual direction: reproduce its WHITE dominant background, thin dark outlines, simple cards, BLACK text and BLACK primary buttons. Black controls may have a very slight green undertone #202A25, NOT a dark theme. Main canvas warm white #F7F8F5, white card surfaces, charcoal text, muted sage #DBE5DA and tiny pale cream #F0E6CA accents. Approx 90% neutral whites. Flat layout plus extremely restrained shallow neumorphic shadows, never glossy or inflated. Thin gray card borders, medium corners, clean monochrome outline icons. No colorful hero, no decorative 3D instruments. Typography Chinese headings reference 方正兰亭黑 and Chinese body reference 汉仪旗黑, natural spacing and clear readable characters. Reuse exact reference visual language consistently across all screens. \nBoard format: light plain white background, small heading at top, three equal columns, each with page number/title above a clean rectangular full mobile screen (no physical phones, no perspective, no giant device frames, no dynamic island). Screen contents must fit without cropping. Each screen has small standard WeChat mini-program top bar and a back arrow on secondary pages. Body at practical readable phone size, not microtext. Bottom tabs only where appropriate for top level screens 首页 / 预约 / 试剂 / 我的. Do NOT add menus on sign-in forms or modal views. No scrollbars anywhere.\nANNOTATIONS: Three tiny readable circled letters A B C in the LEFT MARGIN adjacent to the corresponding major UI regions of EACH screen, with short fine connector strokes. Do not place annotation badges on top of text. A/B/C repeat per screen. Under each screen print exactly the three provided Chinese legend lines. All legends OUTSIDE phone UI; the letters are review annotations not actual app controls. Keep UI region about 80% of available height and legend below ~15%, all crisp. Do not use arrows spanning across screens. Each screen is an independent example snapshot. Interface copy in Chinese; board titles and legends exact. Do not invent extra promotional words or controls. Fields contain plausible illustrative data, not real user data. Preserve necessary actions, no fake charts. \nSecond reference defines board style. All example years MUST be 2026; 2026-10-09 is Friday. Each screen time must be coherent with its content.\nBoard title: 07 · 审批与归还\nCOLUMN 1: 19 管理工作台\nUI: A title 管理工作台 chip 管理员, scope 全部实验室 dropdown. Three compact statistics 待审批5 使用中3 库存预警2. B task rows 待确认归还2 / 仪器维护1 / 校准提醒1. C rows 仪器管理 实验室管理 用户名单 试剂入库 公告管理 操作日志. Small note 教师仅显示授权实验室审批. Bottom首页 selected. Compact white list not nine-grid.\nExact legend below: A 按权限范围查看待办统计。\nB 处理归还、维护与校准提醒。\nC 进入各管理模块；教师仅见授权入口。\nCOLUMN 2: 20 预约审批\nUI: A title 预约审批, filters 待审批 已处理 and 实验室. B two request cards checkboxes 张同学 SEM-01 10月10日14:00–16:00 用途形貌观察 培训合格; 李同学 XRD-02 10月10日10:00–12:00; buttons 通过 驳回. C bottom 已选1条 批量通过 black. Small reject reason text area visibly folded under one card caption 驳回时填写原因.\nExact legend below: A 筛选授权范围内待处理申请。\nB 核对资格和时段后通过或驳回。\nC 批量审批；冲突申请单独提示。\nCOLUMN 3: 21 归还确认\nUI: A title 归还确认; 张同学 SEM-01; 预约14:00–16:00; 实际开始14:03; 用户结束15:40. B check rows 仪器状态正常 / 工作台已清理, 备注 field. C black 确认归还, outline 转入维护. Note 有故障时不直接释放为可用.\nExact legend below: A 核对使用人及实际使用时间。\nB 检查仪器、清理情况并记录备注。\nC 确认归还或转入维护处理。",
+      "correctionPrompt": "Use case: text-localization. Edit the attached design board, maintaining exact same aspect ratio and high resolution. Make ONE exact small text correction only. In MIDDLE screen20 预约审批 in the reason textarea under 驳回时填写原因, change placeholder 请输入驳回原因（选填） to 请输入驳回原因（必填）. Rejection requires a reason. Preserve ALL other text, page layout, fonts, colors, UI components and annotations unchanged."
+    },
+    {
+      "number": 8,
+      "title": "08 · 仪器管理与维护",
+      "file": "08-仪器管理与维护.png",
+      "pages": [
+        {
+          "title": "22 仪器管理",
+          "annotations": [
+            "A 按实验室查找或新增仪器。",
+            "B 查看启停状态及仪器资料。",
+            "C 编辑、维护或停用并保留历史。"
+          ]
+        },
+        {
+          "title": "23 编辑仪器",
+          "annotations": [
+            "A 维护名称、编号、位置与图片。",
+            "B 编辑说明书、安全须知及校准档案。",
+            "C 设置审批和培训要求并保存。"
+          ]
+        },
+        {
+          "title": "24 维护进度",
+          "annotations": [
+            "A 查看维护原因与当前状态。",
+            "B 跟踪进度并处理受影响预约。",
+            "C 管理员更新进度或确认恢复。"
+          ]
+        }
+      ],
+      "prompt": "Use case: ui-mockup. Create a high-resolution LANDSCAPE annotated UI design board approximately 3072x2304, containing exactly THREE full portrait mobile app screens side by side with a separate compact FUNCTION LEGEND under EACH screen. One image only. App: 实验室管家. Reference image is the user's APPROVED visual direction: reproduce its WHITE dominant background, thin dark outlines, simple cards, BLACK text and BLACK primary buttons. Black controls may have a very slight green undertone #202A25, NOT a dark theme. Main canvas warm white #F7F8F5, white card surfaces, charcoal text, muted sage #DBE5DA and tiny pale cream #F0E6CA accents. Approx 90% neutral whites. Flat layout plus extremely restrained shallow neumorphic shadows, never glossy or inflated. Thin gray card borders, medium corners, clean monochrome outline icons. No colorful hero, no decorative 3D instruments. Typography Chinese headings reference 方正兰亭黑 and Chinese body reference 汉仪旗黑, natural spacing and clear readable characters. Reuse exact reference visual language consistently across all screens. \nBoard format: light plain white background, small heading at top, three equal columns, each with page number/title above a clean rectangular full mobile screen (no physical phones, no perspective, no giant device frames, no dynamic island). Screen contents must fit without cropping. Each screen has small standard WeChat mini-program top bar and a back arrow on secondary pages. Body at practical readable phone size, not microtext. Bottom tabs only where appropriate for top level screens 首页 / 预约 / 试剂 / 我的. Do NOT add menus on sign-in forms or modal views. No scrollbars anywhere.\nANNOTATIONS: Three tiny readable circled letters A B C in the LEFT MARGIN adjacent to the corresponding major UI regions of EACH screen, with short fine connector strokes. Do not place annotation badges on top of text. A/B/C repeat per screen. Under each screen print exactly the three provided Chinese legend lines. All legends OUTSIDE phone UI; the letters are review annotations not actual app controls. Keep UI region about 80% of available height and legend below ~15%, all crisp. Do not use arrows spanning across screens. Each screen is an independent example snapshot. Interface copy in Chinese; board titles and legends exact. Do not invent extra promotional words or controls. Fields contain plausible illustrative data, not real user data. Preserve necessary actions, no fake charts. \nSecond reference defines board format. All examples in 2026 or future2027; no2025.\nBoard title: 08 · 仪器管理与维护\nCOLUMN 1: 22 仪器管理\nUI: A title 仪器管理, lab selector 全部实验室, search and small +新增. B cards SEM-01 扫描电子显微镜 启用; XRD-02 X射线衍射仪 启用; FTIR-03 红外光谱仪 维护. C each 编辑 / 维护记录 / 停用; disabled example 恢复. Small note 历史记录保留.\nExact legend below: A 按实验室查找或新增仪器。\nB 查看启停状态及仪器资料。\nC 编辑、维护或停用并保留历史。\nCOLUMN 2: 23 编辑仪器\nUI: A fields 仪器名称 扫描电子显微镜, 编号SEM-01, 型号SU系列, 实验室501; picture upload small. B collapsible 使用方法与安全须知 and 说明书PDF上传, archive row 下次校准2027-03-01. C toggles 需要审批 ON, 需要培训 ON; 培训名单 link, black 保存. Long form sections compact but readable no microtext.\nExact legend below: A 维护名称、编号、位置与图片。\nB 编辑说明书、安全须知及校准档案。\nC 设置审批和培训要求并保存。\nCOLUMN 3: 24 维护进度\nUI: A title 维护记录, FTIR-03, status维护中, 原因光源检修. B timeline 报修10月9日09:00 / 检修中 / 预计恢复10月10日; 影响预约2条 with 查看与通知. C management row 更新进度, outline 延后恢复, black 确认恢复. Role note 管理员可编辑，用户仅查看.\nExact legend below: A 查看维护原因与当前状态。\nB 跟踪进度并处理受影响预约。\nC 管理员更新进度或确认恢复。",
+      "correctionPrompt": null
+    },
+    {
+      "number": 9,
+      "title": "09 · 实验室与用户管理",
+      "file": "09-实验室与用户管理.png",
+      "pages": [
+        {
+          "title": "25 实验室管理",
+          "annotations": [
+            "A 新增或查找实验室。",
+            "B 查看开放时段、负责人和仪器数。",
+            "C 编辑、维护或关闭并检查预约影响。"
+          ]
+        },
+        {
+          "title": "26 编辑实验室",
+          "annotations": [
+            "A 维护名称、房间编号和位置。",
+            "B 设置负责人及开放时段。",
+            "C 保存状态变更并处理关联预约。"
+          ]
+        },
+        {
+          "title": "27 用户名单",
+          "annotations": [
+            "A 按姓名、账号和角色查找用户。",
+            "B 查看角色及授权实验室。",
+            "C 新增、导入或编辑用户资料。"
+          ]
+        }
+      ],
+      "prompt": "Use case: ui-mockup. Create a high-resolution LANDSCAPE annotated UI design board approximately 3072x2304, containing exactly THREE full portrait mobile app screens side by side with a separate compact FUNCTION LEGEND under EACH screen. One image only. App: 实验室管家. Reference image is the user's APPROVED visual direction: reproduce its WHITE dominant background, thin dark outlines, simple cards, BLACK text and BLACK primary buttons. Black controls may have a very slight green undertone #202A25, NOT a dark theme. Main canvas warm white #F7F8F5, white card surfaces, charcoal text, muted sage #DBE5DA and tiny pale cream #F0E6CA accents. Approx 90% neutral whites. Flat layout plus extremely restrained shallow neumorphic shadows, never glossy or inflated. Thin gray card borders, medium corners, clean monochrome outline icons. No colorful hero, no decorative 3D instruments. Typography Chinese headings reference 方正兰亭黑 and Chinese body reference 汉仪旗黑, natural spacing and clear readable characters. Reuse exact reference visual language consistently across all screens. \nBoard format: light plain white background, small heading at top, three equal columns, each with page number/title above a clean rectangular full mobile screen (no physical phones, no perspective, no giant device frames, no dynamic island). Screen contents must fit without cropping. Each screen has small standard WeChat mini-program top bar and a back arrow on secondary pages. Body at practical readable phone size, not microtext. Bottom tabs only where appropriate for top level screens 首页 / 预约 / 试剂 / 我的. Do NOT add menus on sign-in forms or modal views. No scrollbars anywhere.\nANNOTATIONS: Three tiny readable circled letters A B C in the LEFT MARGIN adjacent to the corresponding major UI regions of EACH screen, with short fine connector strokes. Do not place annotation badges on top of text. A/B/C repeat per screen. Under each screen print exactly the three provided Chinese legend lines. All legends OUTSIDE phone UI; the letters are review annotations not actual app controls. Keep UI region about 80% of available height and legend below ~15%, all crisp. Do not use arrows spanning across screens. Each screen is an independent example snapshot. Interface copy in Chinese; board titles and legends exact. Do not invent extra promotional words or controls. Fields contain plausible illustrative data, not real user data. Preserve necessary actions, no fake charts. \nSecond reference defines board format and style. Dates use2026.\nBoard title: 09 · 实验室与用户管理\nCOLUMN 1: 25 实验室管理\nUI: A title 实验室管理 and 新增实验室. B cards 501材料表征实验室 启用 08:00–20:00 仪器12台; 502化学分析实验室 启用 仪器8台. C card actions 编辑 / 设为维护 / 关闭. Compact caution 关闭前查看受影响预约.\nExact legend below: A 新增或查找实验室。\nB 查看开放时段、负责人和仪器数。\nC 编辑、维护或关闭并检查预约影响。\nCOLUMN 2: 26 编辑实验室\nUI: A title 编辑实验室, fields 名称材料表征实验室 编号501 位置实验楼5层; B 负责人王老师 and open hours08:00–20:00 weekdays chips; C status 启用 / 维护 / 关闭, black 保存. Small future bookings impact info strip when changing status.\nExact legend below: A 维护名称、房间编号和位置。\nB 设置负责人及开放时段。\nC 保存状态变更并处理关联预约。\nCOLUMN 3: 27 用户名单\nUI: A title 用户名单, search 姓名或学号, pills 全部 学生 老师 管理员; B list 张同学 学生 20260018 501实验室; 王老师 教师 T008 501实验室; 林管理员 管理员 T001 全部. C top 新增 / 导入名单, row edit chevron. Small import status 成功18条 待修正2条 查看明细.\nExact legend below: A 按姓名、账号和角色查找用户。\nB 查看角色及授权实验室。\nC 新增、导入或编辑用户资料。",
+      "correctionPrompt": null
+    },
+    {
+      "number": 10,
+      "title": "10 · 账号权限与库存流水",
+      "file": "10-账号权限与库存流水.png",
+      "pages": [
+        {
+          "title": "28 编辑用户",
+          "annotations": [
+            "A 维护用户基本资料。",
+            "B 设置角色、实验室范围与账号状态。",
+            "C 保存、重置密码或停用账号。"
+          ]
+        },
+        {
+          "title": "29 试剂入库与调整",
+          "annotations": [
+            "A 选择试剂及入库或调整类型。",
+            "B 填写批次、数量、柜位与有效期。",
+            "C 核对数量并保存变动原因。"
+          ]
+        },
+        {
+          "title": "30 库存与领用记录",
+          "annotations": [
+            "A 筛选试剂、时间和操作人。",
+            "B 追踪入库、领用及调整流水。",
+            "C 查看变动前后数量和关联样品。"
+          ]
+        }
+      ],
+      "prompt": "Use case: ui-mockup. Create a high-resolution LANDSCAPE annotated UI design board approximately 3072x2304, containing exactly THREE full portrait mobile app screens side by side with a separate compact FUNCTION LEGEND under EACH screen. One image only. App: 实验室管家. Reference image is the user's APPROVED visual direction: reproduce its WHITE dominant background, thin dark outlines, simple cards, BLACK text and BLACK primary buttons. Black controls may have a very slight green undertone #202A25, NOT a dark theme. Main canvas warm white #F7F8F5, white card surfaces, charcoal text, muted sage #DBE5DA and tiny pale cream #F0E6CA accents. Approx 90% neutral whites. Flat layout plus extremely restrained shallow neumorphic shadows, never glossy or inflated. Thin gray card borders, medium corners, clean monochrome outline icons. No colorful hero, no decorative 3D instruments. Typography Chinese headings reference 方正兰亭黑 and Chinese body reference 汉仪旗黑, natural spacing and clear readable characters. Reuse exact reference visual language consistently across all screens. \nBoard format: light plain white background, small heading at top, three equal columns, each with page number/title above a clean rectangular full mobile screen (no physical phones, no perspective, no giant device frames, no dynamic island). Screen contents must fit without cropping. Each screen has small standard WeChat mini-program top bar and a back arrow on secondary pages. Body at practical readable phone size, not microtext. Bottom tabs only where appropriate for top level screens 首页 / 预约 / 试剂 / 我的. Do NOT add menus on sign-in forms or modal views. No scrollbars anywhere.\nANNOTATIONS: Three tiny readable circled letters A B C in the LEFT MARGIN adjacent to the corresponding major UI regions of EACH screen, with short fine connector strokes. Do not place annotation badges on top of text. A/B/C repeat per screen. Under each screen print exactly the three provided Chinese legend lines. All legends OUTSIDE phone UI; the letters are review annotations not actual app controls. Keep UI region about 80% of available height and legend below ~15%, all crisp. Do not use arrows spanning across screens. Each screen is an independent example snapshot. Interface copy in Chinese; board titles and legends exact. Do not invent extra promotional words or controls. Fields contain plausible illustrative data, not real user data. Preserve necessary actions, no fake charts. \nSecond reference defines consistent board format. All dates 2026. Top clock on ledger screen15:30 to be after15:00 transaction. Examples are independent snapshots.\nBoard title: 10 · 账号权限与库存流水\nCOLUMN 1: 28 编辑用户\nUI: A title 编辑用户, 姓名张同学 学号20260018 联系方式已登记. B role 学生 selected 老师 管理员 and 授权实验室501 selected502; 账号状态启用. C buttons 保存 black, 重置密码 outlined, 停用账号 text. Note 停用保留历史记录.\nExact legend below: A 维护用户基本资料。\nB 设置角色、实验室范围与账号状态。\nC 保存、重置密码或停用账号。\nCOLUMN 2: 29 试剂入库与调整\nUI: A title 试剂入库, segmented 入库 盘点调整, name氯化钠 CAS7647-14-5 规格500g/瓶. B fields 批次R20261009 数量6瓶 柜位A柜01 有效期2028-10-01 阈值5瓶. C note 当前16瓶 入库后22瓶, 原因/备注 常规补充, black 确认入库. No random subtraction.\nExact legend below: A 选择试剂及入库或调整类型。\nB 填写批次、数量、柜位与有效期。\nC 核对数量并保存变动原因。\nCOLUMN 3: 30 库存与领用记录\nUI: A title 库存流水, filters 试剂 日期 操作人; selected 氯化钠. B ledger cards 10月9日15:00 入库+6瓶 林管理员; 10月9日13:00 领用−2瓶 张同学 样品SMP-20261009-007. C entry expanded 变动前18瓶 变动后16瓶 用途样品制备 批次R20261001. Note 学生仅查看本人领用记录.\nExact legend below: A 筛选试剂、时间和操作人。\nB 追踪入库、领用及调整流水。\nC 查看变动前后数量和关联样品。",
+      "correctionPrompt": null
+    },
+    {
+      "number": 11,
+      "title": "11 · 通知与公告",
+      "file": "11-通知与公告.png",
+      "pages": [
+        {
+          "title": "31 通知中心",
+          "annotations": [
+            "A 筛选未读消息并标记已读。",
+            "B 查看审批、候补及维护通知。",
+            "C 跳转对应记录处理；仅站内提醒。"
+          ]
+        },
+        {
+          "title": "32 公告列表",
+          "annotations": [
+            "A 筛选普通与紧急公告。",
+            "B 查看公告标题、时间和影响范围。",
+            "C 展开全文；管理员可进入编辑。"
+          ]
+        },
+        {
+          "title": "33 发布公告",
+          "annotations": [
+            "A 填写标题和公告优先级。",
+            "B 编写正文并选择通知范围。",
+            "C 预览后发布到公告与站内通知。"
+          ]
+        }
+      ],
+      "prompt": "Use case: ui-mockup. Create a high-resolution LANDSCAPE annotated UI design board approximately 3072x2304, containing exactly THREE full portrait mobile app screens side by side with a separate compact FUNCTION LEGEND under EACH screen. One image only. App: 实验室管家. Reference image is the user's APPROVED visual direction: reproduce its WHITE dominant background, thin dark outlines, simple cards, BLACK text and BLACK primary buttons. Black controls may have a very slight green undertone #202A25, NOT a dark theme. Main canvas warm white #F7F8F5, white card surfaces, charcoal text, muted sage #DBE5DA and tiny pale cream #F0E6CA accents. Approx 90% neutral whites. Flat layout plus extremely restrained shallow neumorphic shadows, never glossy or inflated. Thin gray card borders, medium corners, clean monochrome outline icons. No colorful hero, no decorative 3D instruments. Typography Chinese headings reference 方正兰亭黑 and Chinese body reference 汉仪旗黑, natural spacing and clear readable characters. Reuse exact reference visual language consistently across all screens. \nBoard format: light plain white background, small heading at top, three equal columns, each with page number/title above a clean rectangular full mobile screen (no physical phones, no perspective, no giant device frames, no dynamic island). Screen contents must fit without cropping. Each screen has small standard WeChat mini-program top bar and a back arrow on secondary pages. Body at practical readable phone size, not microtext. Bottom tabs only where appropriate for top level screens 首页 / 预约 / 试剂 / 我的. Do NOT add menus on sign-in forms or modal views. No scrollbars anywhere.\nANNOTATIONS: Three tiny readable circled letters A B C in the LEFT MARGIN adjacent to the corresponding major UI regions of EACH screen, with short fine connector strokes. Do not place annotation badges on top of text. A/B/C repeat per screen. Under each screen print exactly the three provided Chinese legend lines. All legends OUTSIDE phone UI; the letters are review annotations not actual app controls. Keep UI region about 80% of available height and legend below ~15%, all crisp. Do not use arrows spanning across screens. Each screen is an independent example snapshot. Interface copy in Chinese; board titles and legends exact. Do not invent extra promotional words or controls. Fields contain plausible illustrative data, not real user data. Preserve necessary actions, no fake charts. \nSecond reference defines board format. All years2026. Make all notice action labels legible.\nBoard title: 11 · 通知与公告\nCOLUMN 1: 31 通知中心\nUI: A title 通知中心, tabs 未读 全部 and 全部已读. B cards 预约已通过 SEM-01 10月10日14:00–16:00; 候补可确认 请在通知期限内确认; 仪器维护 FTIR-03预约受影响. C each 查看详情, notice 站内通知，打开小程序后查看. No claim push outside app.\nExact legend below: A 筛选未读消息并标记已读。\nB 查看审批、候补及维护通知。\nC 跳转对应记录处理；仅站内提醒。\nCOLUMN 2: 32 公告列表\nUI: A title 实验室公告 and pills 全部 紧急. B urgent pale cream card 501实验室维护通知 10月10日08:00–12:00暂停开放; normal 实验室使用须知. C selected card expanded content and 发布人林管理员 发布时间2026-10-09, admin-only 编辑 link. No decorative graph.\nExact legend below: A 筛选普通与紧急公告。\nB 查看公告标题、时间和影响范围。\nC 展开全文；管理员可进入编辑。\nCOLUMN 3: 33 发布公告\nUI: A title 发布公告 fields 标题501实验室维护通知, 优先级普通 紧急(selected pale cream). B 正文 text10月10日08:00至12:00暂停开放，请调整预约。, 通知范围501实验室. C 预览 outline and 发布公告 black, note 发布后进入公告列表与站内通知.\nExact legend below: A 填写标题和公告优先级。\nB 编写正文并选择通知范围。\nC 预览后发布到公告与站内通知。",
+      "correctionPrompt": null
+    },
+    {
+      "number": 12,
+      "title": "12 · 个人中心与追溯",
+      "file": "12-个人中心与追溯-校正版.png",
+      "pages": [
+        {
+          "title": "34 个人中心",
+          "annotations": [
+            "A 查看本人身份和所属实验室。",
+            "B 进入预约、样品、领用及培训记录。",
+            "C 修改密码、联系管理员或退出。"
+          ]
+        },
+        {
+          "title": "35 操作日志",
+          "annotations": [
+            "A 按操作人、时间和类型筛选。",
+            "B 追踪谁在何时修改了哪条记录。",
+            "C 展开查看修改前后内容。"
+          ]
+        },
+        {
+          "title": "36 培训资格",
+          "annotations": [
+            "A 查看各仪器的培训资格及有效期。",
+            "B 查看培训记录并联系负责人。",
+            "C 管理员可授予或撤销使用资格。"
+          ]
+        }
+      ],
+      "prompt": "Use case: ui-mockup. Create a high-resolution LANDSCAPE annotated UI design board approximately 3072x2304, containing exactly THREE full portrait mobile app screens side by side with a separate compact FUNCTION LEGEND under EACH screen. One image only. App: 实验室管家. Reference image is the user's APPROVED visual direction: reproduce its WHITE dominant background, thin dark outlines, simple cards, BLACK text and BLACK primary buttons. Black controls may have a very slight green undertone #202A25, NOT a dark theme. Main canvas warm white #F7F8F5, white card surfaces, charcoal text, muted sage #DBE5DA and tiny pale cream #F0E6CA accents. Approx 90% neutral whites. Flat layout plus extremely restrained shallow neumorphic shadows, never glossy or inflated. Thin gray card borders, medium corners, clean monochrome outline icons. No colorful hero, no decorative 3D instruments. Typography Chinese headings reference 方正兰亭黑 and Chinese body reference 汉仪旗黑, natural spacing and clear readable characters. Reuse exact reference visual language consistently across all screens. \nBoard format: light plain white background, small heading at top, three equal columns, each with page number/title above a clean rectangular full mobile screen (no physical phones, no perspective, no giant device frames, no dynamic island). Screen contents must fit without cropping. Each screen has small standard WeChat mini-program top bar and a back arrow on secondary pages. Body at practical readable phone size, not microtext. Bottom tabs only where appropriate for top level screens 首页 / 预约 / 试剂 / 我的. Do NOT add menus on sign-in forms or modal views. No scrollbars anywhere.\nANNOTATIONS: Three tiny readable circled letters A B C in the LEFT MARGIN adjacent to the corresponding major UI regions of EACH screen, with short fine connector strokes. Do not place annotation badges on top of text. A/B/C repeat per screen. Under each screen print exactly the three provided Chinese legend lines. All legends OUTSIDE phone UI; the letters are review annotations not actual app controls. Keep UI region about 80% of available height and legend below ~15%, all crisp. Do not use arrows spanning across screens. Each screen is an independent example snapshot. Interface copy in Chinese; board titles and legends exact. Do not invent extra promotional words or controls. Fields contain plausible illustrative data, not real user data. Preserve necessary actions, no fake charts. \nSecond reference defines board format. Years2026 unless expiry2027. Keep role variants clearly separated as external inset labeled 管理员视图, never show admin actions as student-authorized.\nBoard title: 12 · 个人中心与追溯\nCOLUMN 1: 34 个人中心\nUI: A title 我的, avatar simple initial 张, 张同学 学生 501实验室; B rows 我的预约 我的候补 我的样品 我的领用记录 培训资格. C rows 修改密码 联系管理员 关于系统; quiet 退出登录. Bottom我的 selected. Small annotation-specific teacher/admin differences described legend not extra student controls.\nExact legend below: A 查看本人身份和所属实验室。\nB 进入预约、样品、领用及培训记录。\nC 修改密码、联系管理员或退出。\nCOLUMN 2: 35 操作日志\nUI: A title 操作日志; filter 操作人 时间 类型. B chronological entries 林管理员 审批通过 10月9日13:10 / 王老师 更新仪器 10月9日12:30; C expanded change detail SEM-01 下次校准 原2027-02-01 新2027-03-01 操作原因计划调整. Readonly no delete controls.\nExact legend below: A 按操作人、时间和类型筛选。\nB 追踪谁在何时修改了哪条记录。\nC 展开查看修改前后内容。\nCOLUMN 3: 36 培训资格\nUI: A title 培训资格; scope本人; rows SEM-01 已合格 有效至2027-10-09; XRD-02 未完成. B selected SEM-01 detail 培训日期2026-10-01 确认人王老师 and 注意事项. C below thin divider section 管理员操作 with compact clearly role-labeled variant 授予资格 / 撤销资格, not a student-visible action; show small inset 管理员视图. Student link 联系培训负责人.\nExact legend below: A 查看各仪器的培训资格及有效期。\nB 查看培训记录并联系负责人。\nC 管理员可授予或撤销使用资格。",
+      "correctionPrompt": "Use case: text-localization. Edit the attached design board, maintaining exact same aspect ratio and high resolution. Make exact corrections only in MIDDLE screen35 操作日志; keep LEFT and RIGHT screens fully unchanged. This screen's expanded detail is a calibration date update and MUST correspond to 王老师 更新仪器 10月9日12:30, not 林管理员 审批通过. Remove sage selected highlight from top 林管理员审批通过 row; put it on second 王老师更新仪器 row. In expanded bottom detail header change actor林管理员 to王老师, badge审批通过 to更新仪器, timestamp10月9日13:10 to10月9日12:30. Keep calibration old2027-02-01 new2027-03-01 and reason计划调整 and other contents unchanged."
+    }
+  ]
+}

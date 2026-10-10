@@ -1,0 +1,13 @@
+# Publish only the reviewed handoff and repository entry files.
+/*
+!/.gitignore
+!/README.md
+!/AGENTS.md
+!/AI交接目录/
+**/node_modules/
+**/.env
+**/.env.*
+**/project.private.config.json
+**/.DS_Store
+**/Thumbs.db
+**/*.log
